@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 20:02:57 by hgranule          #+#    #+#             */
-/*   Updated: 2019/04/19 20:44:17 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/04/25 23:39:18 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
-void				*ft_memcut(void *dst, void *src, size_t n, int filler);
 /*
 ** CHECK THE MAN.
 */
@@ -62,13 +61,6 @@ void				ft_hexdump(void *ptr, size_t size);
 ** to a new memory.
 */
 void				*ft_memdup(void *start, size_t len);
-/*
-** Copies (len) bytes from (src) to (dst), and removes dst.
-** Copy begins from (src + offset) adress.
-** Removes (dst) before copy anyway.
-** If (src) == 0 or if copy failed returns 0.
-*/
-void				*ft_memshrink(void *s, void *d, size_t off, size_t len);
 
 /*
 ** :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: **
@@ -202,6 +194,5 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 ** The first "non-zero" call of function f for link, will return
 ** that link.
 */
-t_list				*ft_lstfind(t_list *lst, int (*f)(t_list *elem));
 
 #endif
