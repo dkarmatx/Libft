@@ -3,6 +3,15 @@ Libft - recreating of the C standart library
 
 ## Memory editing functions
 
-#### ft_memcpy()
-##### void | \*ft_memcpy(void \*dst, const void \*src, size_t n);
-The ft_memcpy() function copies n bytes from memory area src to memory area dst.  If dst and src overlap, behavior is undefined.  Applications in which dst and src might overlap should use ft_memmove(3) instead.
+### ft_memcpy()
+```c
+void				*ft_memcpy(void *dst, const void *src, size_t n);
+```
+### ft_memalloc()
+```c
+void				*ft_memalloc(size_t size);
+```
+### ft_memset()
+```c
+void				*ft_memset(void *b, int c, size_t len);
+```
