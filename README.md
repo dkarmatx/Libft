@@ -1,17 +1,77 @@
 # Libft
-Libft - recreating of the C standart library
+Libft - recreating of the C standart library with some helpful functions.
 
-## Memory editing functions
+Memory editing functions:
+* ft_memcpy()
+* ft_memdel()
+* ft_memalloc()
+* ft_memset()
+* ft_bzero()
+* ft_memccpy()
+* ft_memmove()
+* ft_memchr()
+* ft_memcmp()
+* ft_memcut()
+* ft_realloc()
+* ft_hexdump()
+* ft_memdup()
 
-#### ft_memcpy()
-```c
-void				*ft_memcpy(void *dst, const void *src, size_t n);
-```
-#### ft_memalloc()
-```c
-void				*ft_memalloc(size_t size);
-```
-#### ft_memset()
-```c
-void				*ft_memset(void *b, int c, size_t len);
-```
+String editing functions:
+* ft_strnew()
+* ft_strdup()
+* ft_strchr()
+* ft_strrchr()
+* ft_strstr()
+* ft_strnstr()
+* ft_strcpy()
+* ft_strncpy()
+* ft_strcat()
+* ft_strncat()
+* ft_strlcat()
+* ft_strdel()
+* ft_strclr()
+* ft_striter()
+* ft_striteri()
+* ft_strmap()
+* ft_strmapi()
+* ft_strlen()
+* ft_strnlen()
+* ft_strcmp()
+* ft_strncmp()
+* ft_strequ()
+* ft_strnequ()
+* ft_strsub()
+* ft_strjoin()
+* ft_strtrim()
+* ft_strsplit()
+* ft_lltoa_base()
+* ft_itoa()
+* ft_atoi()
+* ft_atoi_base()
+* ft_atoll_base()
+* ft_toupper()
+* ft_tolower()
+* ft_isalpha()
+* ft_isdigit()
+* ft_isalnum()
+* ft_isascii()
+* ft_isprint()
+* ft_isspace()
+
+I/O Functions
+* ft_putchar()
+* ft_putstr()
+* ft_putendl()
+* ft_putnbr()
+* ft_putll_base_fd()
+* ft_putchar_fd()
+* ft_putstr_fd()
+* ft_putnbr_fd()
+
+List editing Functions
+* ft_lstadd()
+* ft_lstnew()
+* ft_lstdelone()
+* ft_lstdel()
+* ft_lstiter()
+* ft_lstmap()
