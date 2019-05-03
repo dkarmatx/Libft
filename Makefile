@@ -6,7 +6,7 @@
 #    By: hgranule <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 20:36:01 by hgranule          #+#    #+#              #
-#    Updated: 2019/05/03 08:00:54 by hgranule         ###   ########.fr        #
+#    Updated: 2019/05/03 08:57:54 by hgranule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,40 +59,45 @@ FT_STRING_F =	ft_strnew ft_strdup ft_strchr \
 
 all: $(NAME)
 
-$(TMP_DIR):
+tmp_dir:
 	@if ! [ -d $(TMP_DIR) ]; then mkdir $(TMP_DIR); fi;
 
-ft_string: $(TMP_DIR)
+ft_string: tmp_dir
 	$(foreach cs, $(FT_STRING_S), $(shell if ! [ -f $(patsubst $(FT_STRING_D)/%.c, $(TMP_DIR)/%.o, $(cs)) ]; \
 	then $(CC) $(CCFLAGS) -c $(cs) -I $(H_DIR); \
 	mv $(patsubst $(FT_STRING_D)/%.c, $(WORK_SPACE)/%.o, $(cs)) $(TMP_DIR)/; \
 	fi;))
 
-ft_ctype: $(TMP_DIR)
+ft_ctype: tmp_dir
 	$(foreach cs, $(FT_CTYPE_S), $(shell if ! [ -f $(patsubst $(FT_CTYPE_D)/%.c, $(TMP_DIR)/%.o, $(cs)) ]; \
 	then $(CC) $(CCFLAGS) -c $(cs) -I $(H_DIR); \
 	mv $(patsubst $(FT_CTYPE_D)/%.c, $(WORK_SPACE)/%.o, $(cs)) $(TMP_DIR)/; \
 	fi;))
 
-ft_mem: $(TMP_DIR)
+ft_mem: tmp_dir
 	$(foreach cs, $(FT_MEM_S), $(shell if ! [ -f $(patsubst $(FT_MEM_D)/%.c, $(TMP_DIR)/%.o, $(cs)) ]; \
 	then $(CC) $(CCFLAGS) -c $(cs) -I $(H_DIR); \
 	mv $(patsubst $(FT_MEM_D)/%.c, $(WORK_SPACE)/%.o, $(cs)) $(TMP_DIR)/; \
 	fi;))
 
-ft_list: $(TMP_DIR)
+ft_list: tmp_dir
 	$(foreach cs, $(FT_LIST_S), $(shell if ! [ -f $(patsubst $(FT_LIST_D)/%.c, $(TMP_DIR)/%.o, $(cs)) ]; \
 	then $(CC) $(CCFLAGS) -c $(cs) -I $(H_DIR); \
 	mv $(patsubst $(FT_LIST_D)/%.c, $(WORK_SPACE)/%.o, $(cs)) $(TMP_DIR)/; \
 	fi;))
 
-ft_io: $(TMP_DIR)
+ft_io: tmp_dir
 	$(foreach cs, $(FT_IO_S), $(shell if ! [ -f $(patsubst $(FT_IO_D)/%.c, $(TMP_DIR)/%.o, $(cs)) ]; \
 	then $(CC) $(CCFLAGS) -c $(cs) -I $(H_DIR); \
 	mv $(patsubst $(FT_IO_D)/%.c, $(WORK_SPACE)/%.o, $(cs)) $(TMP_DIR)/; \
 	fi;))
 
-$(NAME): ft_io ft_list ft_mem ft_ctype ft_string
+$(NAME):
+	@$(MAKE) ft_string
+	@$(MAKE) ft_ctype
+	@$(MAKE) ft_mem
+	@$(MAKE) ft_list
+	@$(MAKE) ft_io
 	@ar rc $(NAME) $(TMP_DIR)/*.o
 	@ranlib $(NAME)
 
