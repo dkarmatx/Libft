@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 20:02:57 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/02 22:39:29 by hgranule         ###   ########.fr       */
+/*   Created: 2019/04/05 22:32:30 by hgranule          #+#    #+#             */
+/*   Updated: 2019/05/02 22:22:48 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_io.h"
 
-# include <string.h>
-# include "ft_ctype.h"
-# include "ft_io.h"
-# include "ft_list.h"
-# include "ft_mem.h"
-# include "ft_string.h"
-
-#endif
+void	ft_putstr(char const *s)
+{
+	ft_putstr_fd(s, 1);
+}

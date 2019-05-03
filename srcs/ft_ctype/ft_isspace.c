@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 20:02:57 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/02 22:39:29 by hgranule         ###   ########.fr       */
+/*   Created: 2019/04/07 16:58:40 by hgranule          #+#    #+#             */
+/*   Updated: 2019/05/02 20:55:15 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-
-# include <string.h>
-# include "ft_ctype.h"
-# include "ft_io.h"
-# include "ft_list.h"
-# include "ft_mem.h"
-# include "ft_string.h"
-
-#endif
+int		ft_isspace(int c)
+{
+	if (c == 32 || (c <= 13 && 9 <= c))
+		return (1);
+	return (0);
+}

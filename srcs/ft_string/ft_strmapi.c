@@ -1,23 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 20:02:57 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/02 22:39:29 by hgranule         ###   ########.fr       */
+/*   Created: 2019/04/04 02:22:32 by hgranule          #+#    #+#             */
+/*   Updated: 2019/05/03 06:31:57 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include <stdlib.h>
+#include "ft_string.h"
 
-# include <string.h>
-# include "ft_ctype.h"
-# include "ft_io.h"
-# include "ft_list.h"
-# include "ft_mem.h"
-# include "ft_string.h"
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	size_t			size;
+	unsigned int	i;
+	char			*map;
 
-#endif
+	map = 0;
+	if (s)
+	{
+		size = ft_strlen(s);
+		map = (char *)malloc(sizeof(char) * (size + 1));
+		if (f && map)
+		{
+			i = 0;
+			while (i < size)
+			{
+				map[i] = (*f)(i, s[i]);
+				i++;
+			}
+			map[i] = 0;
+		}
+	}
+	return (map);
+}

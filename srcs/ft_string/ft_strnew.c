@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 20:02:57 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/02 22:39:29 by hgranule         ###   ########.fr       */
+/*   Created: 2019/04/03 19:51:18 by hgranule          #+#    #+#             */
+/*   Updated: 2019/05/03 06:32:53 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_mem.h"
 
-# include <string.h>
-# include "ft_ctype.h"
-# include "ft_io.h"
-# include "ft_list.h"
-# include "ft_mem.h"
-# include "ft_string.h"
+char	*ft_strnew(size_t size)
+{
+	char	*str;
 
-#endif
+	if (size == ((size_t)0) - 1)
+		return (0);
+	str = (char *)ft_memalloc(size + 1);
+	return (str);
+}

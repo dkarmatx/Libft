@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_hexdump.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 20:02:57 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/02 22:39:29 by hgranule         ###   ########.fr       */
+/*   Created: 2019/04/16 18:44:34 by hgranule          #+#    #+#             */
+/*   Updated: 2019/05/02 21:37:17 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_io.h"
 
-# include <string.h>
-# include "ft_ctype.h"
-# include "ft_io.h"
-# include "ft_list.h"
-# include "ft_mem.h"
-# include "ft_string.h"
+void	ft_hexdump(void *ptr, size_t size)
+{
+	unsigned char	*byte;
+	int				fd;
 
-#endif
+	fd = 1;
+	byte = (unsigned char *)ptr;
+	while (size--)
+	{
+		if (*byte < 16)
+			ft_putchar_fd('0', fd);
+		ft_putll_base_fd(*byte, fd, 16);
+		ft_putchar_fd(' ', fd);
+		byte++;
+	}
+}

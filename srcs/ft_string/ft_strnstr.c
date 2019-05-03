@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 20:02:57 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/02 22:39:29 by hgranule         ###   ########.fr       */
+/*   Created: 2019/04/07 09:16:57 by hgranule          #+#    #+#             */
+/*   Updated: 2019/05/03 06:33:40 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_string.h"
 
-# include <string.h>
-# include "ft_ctype.h"
-# include "ft_io.h"
-# include "ft_list.h"
-# include "ft_mem.h"
-# include "ft_string.h"
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+{
+	const char	*hs = haystack;
+	size_t		nd_len;
 
-#endif
+	nd_len = ft_strlen(needle);
+	if (nd_len == 0)
+		return ((char *)hs);
+	while (len && *hs)
+	{
+		if (len >= nd_len)
+			if (!(ft_strncmp(hs, needle, nd_len)))
+				return ((char *)hs);
+		hs++;
+		len--;
+	}
+	return (0);
+}

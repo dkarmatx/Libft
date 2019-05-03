@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 20:02:57 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/02 22:39:29 by hgranule         ###   ########.fr       */
+/*   Created: 2019/04/06 20:30:20 by hgranule          #+#    #+#             */
+/*   Updated: 2019/05/02 21:40:29 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_mem.h"
 
-# include <string.h>
-# include "ft_ctype.h"
-# include "ft_io.h"
-# include "ft_list.h"
-# include "ft_mem.h"
-# include "ft_string.h"
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	unsigned char	*p1;
+	unsigned char	*p2;
 
-#endif
+	p2 = (unsigned char *)s2;
+	p1 = (unsigned char *)s1;
+	while (n--)
+		if (*p1 != *p2)
+			return (*p1 - *p2);
+		else
+		{
+			p1++;
+			p2++;
+		}
+	return (0);
+}

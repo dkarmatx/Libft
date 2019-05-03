@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 20:02:57 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/02 22:39:29 by hgranule         ###   ########.fr       */
+/*   Created: 2019/04/06 18:07:16 by hgranule          #+#    #+#             */
+/*   Updated: 2019/05/02 21:39:31 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_mem.h"
 
-# include <string.h>
-# include "ft_ctype.h"
-# include "ft_io.h"
-# include "ft_list.h"
-# include "ft_mem.h"
-# include "ft_string.h"
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+{
+	void	*ptr;
+	size_t	len;
 
-#endif
+	if ((ptr = ft_memchr(src, c, n)))
+	{
+		len = ptr - src + 1;
+		ft_memcpy(dst, src, len);
+		return (dst + len);
+	}
+	ft_memcpy(dst, src, n);
+	return (0);
+}
