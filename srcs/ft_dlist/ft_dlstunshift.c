@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_dlstunshift.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 20:02:57 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/03 15:44:26 by hgranule         ###   ########.fr       */
+/*   Created: 2019/05/03 14:13:29 by hgranule          #+#    #+#             */
+/*   Updated: 2019/05/03 15:59:25 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_dlist.h"
 
-# include <string.h>
-# include "ft_ctype.h"
-# include "ft_io.h"
-# include "ft_list.h"
-# include "ft_dlist.h"
-# include "ft_mem.h"
-# include "ft_string.h"
+void	ft_dlstunshift(t_dlist **dlst, t_dlist *nlst)
+{
 
-#endif
+	if (!nlst || !dlst)
+		return ;
+	nlst->next = *dlst;
+	if (*dlst)
+		(*dlst)->prev = nlst;
+	*dlst = nlst;
+}

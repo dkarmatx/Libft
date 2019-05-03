@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_dlstcut.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 20:02:57 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/03 15:44:26 by hgranule         ###   ########.fr       */
+/*   Created: 2019/05/03 14:53:07 by hgranule          #+#    #+#             */
+/*   Updated: 2019/05/03 15:14:54 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_dlist.h"
 
-# include <string.h>
-# include "ft_ctype.h"
-# include "ft_io.h"
-# include "ft_list.h"
-# include "ft_dlist.h"
-# include "ft_mem.h"
-# include "ft_string.h"
+t_dlist		*ft_dlstcut(t_dlist *cutdlst)
+{
+	t_dlist		*prev;
+	t_dlist		*next;
 
-#endif
+	if (!cutdlst)
+		return (0);
+	prev = cutdlst->prev;
+	next = cutdlst->next;
+	if (prev)
+		prev->next = next;
+	if (next)
+		next->prev = prev;
+	return (cutdlst);
+}

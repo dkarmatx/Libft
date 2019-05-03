@@ -6,7 +6,7 @@
 #    By: hgranule <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 20:36:01 by hgranule          #+#    #+#              #
-#    Updated: 2019/05/03 08:57:54 by hgranule         ###   ########.fr        #
+#    Updated: 2019/05/03 15:42:05 by hgranule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,12 @@ FT_LIST_D =		$(WORK_SPACE)/srcs/ft_list
 FT_LIST_S =		$(patsubst %, $(FT_LIST_D)/%.c, $(FT_LIST_F))
 FT_LIST_F =     ft_lstnew ft_lstdelone ft_lstdel \
 				ft_lstadd ft_lstiter ft_lstmap
+
+FT_DLIST_D =	$(WORK_SPACE)/srcs/ft_dlist
+FT_DLIST_S =	$(patsubst %, $(FT_DLIST_D)/%.c, $(FT_DLIST_F))
+FT_DLIST_F =    ft_dlstnew ft_dlstpush ft_dlstunshift \
+				ft_dlstget ft_dlstrget ft_dlstinsert \
+				ft_dlstrmelem ft_dlstcut ft_dlstdel
 
 FT_MEM_D =		$(WORK_SPACE)/srcs/ft_mem
 FT_MEM_S =		$(patsubst %, $(FT_MEM_D)/%.c, $(FT_MEM_F))
@@ -86,6 +92,12 @@ ft_list: tmp_dir
 	mv $(patsubst $(FT_LIST_D)/%.c, $(WORK_SPACE)/%.o, $(cs)) $(TMP_DIR)/; \
 	fi;))
 
+ft_dlist: tmp_dir
+	$(foreach cs, $(FT_DLIST_S), $(shell if ! [ -f $(patsubst $(FT_DLIST_D)/%.c, $(TMP_DIR)/%.o, $(cs)) ]; \
+	then $(CC) $(CCFLAGS) -c $(cs) -I $(H_DIR); \
+	mv $(patsubst $(FT_DLIST_D)/%.c, $(WORK_SPACE)/%.o, $(cs)) $(TMP_DIR)/; \
+	fi;))
+
 ft_io: tmp_dir
 	$(foreach cs, $(FT_IO_S), $(shell if ! [ -f $(patsubst $(FT_IO_D)/%.c, $(TMP_DIR)/%.o, $(cs)) ]; \
 	then $(CC) $(CCFLAGS) -c $(cs) -I $(H_DIR); \
@@ -97,6 +109,7 @@ $(NAME):
 	@$(MAKE) ft_ctype
 	@$(MAKE) ft_mem
 	@$(MAKE) ft_list
+	@$(MAKE) ft_dlist
 	@$(MAKE) ft_io
 	@ar rc $(NAME) $(TMP_DIR)/*.o
 	@ranlib $(NAME)

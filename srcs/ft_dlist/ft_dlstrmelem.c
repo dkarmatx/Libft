@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_dlstrmelem.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 20:02:57 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/03 15:44:26 by hgranule         ###   ########.fr       */
+/*   Created: 2019/05/03 14:45:42 by hgranule          #+#    #+#             */
+/*   Updated: 2019/05/03 15:17:11 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_dlist.h"
+#include <stdlib.h>
 
-# include <string.h>
-# include "ft_ctype.h"
-# include "ft_io.h"
-# include "ft_list.h"
-# include "ft_dlist.h"
-# include "ft_mem.h"
-# include "ft_string.h"
-
-#endif
+void	ft_dlstrmelem(t_dlist *deldlst)
+{
+	if (!deldlst)
+		return ;
+	deldlst = ft_dlstcut(deldlst);
+	if (deldlst->size && deldlst->content)
+		free(deldlst->content);
+	free(deldlst);
+}
