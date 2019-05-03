@@ -15,10 +15,8 @@
 char	*ft_strcat(char *s1, const char *s2)
 {
 	size_t	s1_len;
-	size_t	s2_len;
 
 	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
 	ft_strcpy(&(s1[s1_len]), s2);
 	return (s1);
 }

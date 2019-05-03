@@ -15,8 +15,8 @@
 
 inline static void	delete_an_conte(void *cont, size_t size)
 {
-	size = 0;
-	free(cont);
+	if (size)
+		free(cont);
 }
 
 inline static void	map_maker(t_list **map, t_list **map_n,
