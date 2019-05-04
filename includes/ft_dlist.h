@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 12:36:12 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/03 15:37:14 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/05/05 00:51:20 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ typedef struct		s_dlist
 	struct s_dlist	*prev;
 }					t_dlist;
 
-t_dlist		*ft_dlstnew(void *content, size_t size);
-void		ft_dlstpush(t_dlist **dlst, t_dlist *nlst);
-void		ft_dlstunshift(t_dlist **dlst, t_dlist *nlst);
-t_dlist		*ft_dlstget(t_dlist *cdlst, size_t ind);
-t_dlist		*ft_dlstrget(t_dlist *cdlst, size_t ind);
-void		ft_dlstinsert(t_dlist *insrt, t_dlist *prv, t_dlist *nxt);
-void		ft_dlstrmelem(t_dlist *deldlst);
-t_dlist		*ft_dlstcut(t_dlist *cutdlst);
-void		ft_dlstdel(t_dlist **dlst, size_t n);
+t_dlist				*ft_dlstnew(void *content, size_t size);
+void				ft_dlstpush(t_dlist **dlst, t_dlist *nlst);
+void				ft_dlstunshift(t_dlist **dlst, t_dlist *nlst);
+t_dlist				*ft_dlstget(t_dlist *cdlst, size_t ind);
+t_dlist				*ft_dlstrget(t_dlist *cdlst, size_t ind);
+void				ft_dlstinsert(t_dlist *insrt, t_dlist *prv, t_dlist *nxt);
+void				ft_dlstrmelem(t_dlist *deldlst);
+t_dlist				*ft_dlstcut(t_dlist *cutdlst);
+void				ft_dlstdel(t_dlist **dlst, size_t n);
 
 #endif
