@@ -6,24 +6,31 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 14:53:07 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/03 15:14:54 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/05/08 16:26:28 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_dlist.h"
 
-t_dlist		*ft_dlstcut(t_dlist *cutdlst)
+t_dlist		*ft_dlstcut(t_dlist **cutdlst)
 {
-	t_dlist		*prev;
-	t_dlist		*next;
+	const t_dlist		*clst = (*cutdlst);
 
-	if (!cutdlst)
+	if (!cutdlst || !(*cutdlst))
 		return (0);
-	prev = cutdlst->prev;
-	next = cutdlst->next;
-	if (prev)
-		prev->next = next;
-	if (next)
-		next->prev = prev;
-	return (cutdlst);
+	if (!((*cutdlst)->prev) && !((*cutdlst)->next))
+	{
+		*cutdlst = (t_dlist *)0;
+		return ((t_dlist *)clst);
+	}
+	if ((*cutdlst)->prev)
+		(*cutdlst)->prev->next = (*cutdlst)->next;
+	else
+	{
+		(*cutdlst) = (*cutdlst)->next;
+		(*cutdlst)->prev = 0;
+	}
+	if ((*cutdlst)->next)
+		(*cutdlst)->next->prev = (*cutdlst)->prev;
+	return ((t_dlist *)clst);
 }
