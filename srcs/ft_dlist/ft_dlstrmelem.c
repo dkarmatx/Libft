@@ -6,19 +6,21 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 14:45:42 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/03 15:17:11 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/05/08 16:56:50 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_dlist.h"
 #include <stdlib.h>
 
-void	ft_dlstrmelem(t_dlist *deldlst)
+void	ft_dlstrmelem(t_dlist **deldlst)
 {
-	if (!deldlst)
+	t_dlist		*removed;
+
+	if (!deldlst || !(*deldlst))
 		return ;
-	deldlst = ft_dlstcut(deldlst);
-	if (deldlst->size && deldlst->content)
-		free(deldlst->content);
-	free(deldlst);
+	removed = ft_dlstcut(deldlst);
+	if (removed->size && removed->content)
+		free(removed->content);
+	free(removed);
 }

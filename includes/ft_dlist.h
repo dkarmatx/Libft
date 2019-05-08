@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 12:36:12 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/08 16:27:34 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/05/08 16:56:51 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void				ft_dlstunshift(t_dlist **dlst, t_dlist *nlst);
 t_dlist				*ft_dlstget(t_dlist *cdlst, size_t ind);
 t_dlist				*ft_dlstrget(t_dlist *cdlst, size_t ind);
 void				ft_dlstinsert(t_dlist *insrt, t_dlist *prv, t_dlist *nxt);
-void				ft_dlstrmelem(t_dlist *deldlst);
+void				ft_dlstrmelem(t_dlist **deldlst);
 t_dlist				*ft_dlstcut(t_dlist **cutdlst);
 void				ft_dlstdel(t_dlist **dlst, size_t n);
 
