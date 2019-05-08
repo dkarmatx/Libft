@@ -15,22 +15,26 @@
 t_dlist		*ft_dlstcut(t_dlist **cutdlst)
 {
 	const t_dlist		*clst = (*cutdlst);
+	t_dlist				*prev;
+	t_dlist				*next;
 
+	prev = clst->prev;
+	next = clst->next;
 	if (!cutdlst || !(*cutdlst))
 		return (0);
-	if (!((*cutdlst)->prev) && !((*cutdlst)->next))
+	if (!prev && !next)
 	{
 		*cutdlst = (t_dlist *)0;
 		return ((t_dlist *)clst);
 	}
-	if ((*cutdlst)->prev)
-		(*cutdlst)->prev->next = (*cutdlst)->next;
+	if (prev)
+		prev->next = next;
 	else
 	{
-		(*cutdlst) = (*cutdlst)->next;
+		(*cutdlst) = next;
 		(*cutdlst)->prev = 0;
 	}
-	if ((*cutdlst)->next)
-		(*cutdlst)->next->prev = (*cutdlst)->prev;
+	if (next)
+		next->prev = prev;
 	return ((t_dlist *)clst);
 }
