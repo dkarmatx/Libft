@@ -24,7 +24,8 @@ void	ft_dlstdel(t_dlist **dlst, size_t n)
 		if (tmp->content && tmp->size)
 			free(tmp->content);
 		(*dlst) = (*dlst)->next;
-		(*dlst)->prev = 0;
+		if (*dlst)
+			(*dlst)->prev = 0;
 		free(tmp);
 	}
 }
