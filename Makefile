@@ -6,7 +6,7 @@
 #    By: hgranule <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 20:36:01 by hgranule          #+#    #+#              #
-#    Updated: 2019/05/03 15:42:05 by hgranule         ###   ########.fr        #
+#    Updated: 2019/05/21 02:45:39 by hgranule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ FT_IO_D =		$(WORK_SPACE)/srcs/ft_io
 FT_IO_S =		$(patsubst %, $(FT_IO_D)/%.c, $(FT_IO_F))
 FT_IO_F =		ft_putchar ft_putstr ft_putendl \
 				ft_putnbr ft_putll_base_fd ft_putchar_fd \
-				ft_putstr_fd ft_putendl_fd ft_putnbr_fd
+				ft_putstr_fd ft_putendl_fd ft_putnbr_fd \
+				ft_hexdump
 
 FT_LIST_D =		$(WORK_SPACE)/srcs/ft_list
 FT_LIST_S =		$(patsubst %, $(FT_LIST_D)/%.c, $(FT_LIST_F))
@@ -47,7 +48,7 @@ FT_MEM_S =		$(patsubst %, $(FT_MEM_D)/%.c, $(FT_MEM_F))
 FT_MEM_F =		ft_memdel ft_memalloc ft_memset \
 				ft_bzero ft_memcpy ft_memccpy \
 				ft_memmove ft_memchr ft_memcmp \
-				ft_realloc ft_hexdump ft_memdup
+				ft_realloc ft_memdup
 
 FT_STRING_D =	$(WORK_SPACE)/srcs/ft_string
 FT_STRING_S =	$(patsubst %, $(FT_STRING_D)/%.c, $(FT_STRING_F))

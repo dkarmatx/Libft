@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 21:37:35 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/02 22:18:36 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/05/21 02:46:27 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putnbr_fd(int nb, int fd);
+void			ft_hexdump(void *ptr, size_t size);
 
 #endif
