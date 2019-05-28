@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 14:20:53 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/03 14:28:20 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/05/28 09:40:13 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,13 @@ void	ft_dlstpush(t_dlist **dlst, t_dlist *nlst)
 {
 	t_dlist		*it;
 
-	if (!(it = *dlst) || !nlst)
+	if (!nlst)
 		return ;
+	if (!dlst || !(it = *dlst))
+	{
+		*dlst = nlst;
+		return ;
+	}
 	while (it->next)
 		it = it->next;
 	it->next = nlst;
