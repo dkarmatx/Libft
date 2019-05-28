@@ -6,7 +6,7 @@
 #    By: hgranule <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 20:36:01 by hgranule          #+#    #+#              #
-#    Updated: 2019/05/21 07:22:26 by hgranule         ###   ########.fr        #
+#    Updated: 2019/05/28 08:42:38 by hgranule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,7 @@ DLISTS =		$(patsubst %, $(C_DIR)/%.c, $(DLIST))
 DLIST =			ft_dlstnew ft_dlstpush ft_dlstunshift \
 				ft_dlstget ft_dlstrget ft_dlstinsert \
 				ft_dlstrmelem ft_dlstcut ft_dlstdel \
+				ft_dlstshift \
 				\
 				ft_memdup ft_memcpy
 				# IMPORT FUNCTIONS
