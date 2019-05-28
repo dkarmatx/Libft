@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 12:36:12 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/28 08:41:38 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/05/28 14:04:00 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,8 @@ void				ft_dlstrmelem(t_dlist **deldlst);
 t_dlist				*ft_dlstcut(t_dlist **cutdlst);
 void				ft_dlstdel(t_dlist **dlst, size_t n);
 t_dlist				*ft_dlstshift(t_dlist **list);
+void				ft_dlstswap(t_dlist *a, t_dlist *b);
+void				ft_dlst_gnsort(t_dlist **, int (*cmp)(void *, void *));
+void				ft_dlst_rgnsort(t_dlist **, int (*cmp)(void *, void *));
 
 #endif
