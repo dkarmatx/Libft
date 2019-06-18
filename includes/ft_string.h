@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 20:57:10 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/02 22:43:44 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/06/18 08:10:16 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ long long			ft_atoll_base(const char *str, int base);
 int					ft_atoi_base(const char *str, int base);
 int					ft_atoi(const char *str);
 unsigned int		ft_countw_delim(char const *s, char delim);
+char				*ft_strccpy(char *dst, const char *src, int c);
 
 #endif

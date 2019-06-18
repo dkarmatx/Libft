@@ -6,7 +6,7 @@
 #    By: hgranule <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 20:36:01 by hgranule          #+#    #+#              #
-#    Updated: 2019/06/06 19:27:22 by hgranule         ###   ########.fr        #
+#    Updated: 2019/06/18 08:11:18 by hgranule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,7 @@ STRING =		ft_strnew ft_strdup ft_strchr \
 				ft_strequ ft_strnequ ft_strsub \
 				ft_strjoin ft_strtrim ft_strsplit \
 				ft_lltoa_base ft_itoa ft_atoll_base \
-				ft_atoi_base ft_atoi ft_countw_delim \
+				ft_atoi_base ft_atoi ft_countw_delim ft_strccpy \
 				\
 				ft_isspace ft_memchr ft_bzero ft_memcpy \
 				ft_memdel ft_memalloc
