@@ -6,7 +6,7 @@
 #    By: hgranule <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 20:36:01 by hgranule          #+#    #+#              #
-#    Updated: 2019/06/18 08:11:18 by hgranule         ###   ########.fr        #
+#    Updated: 2019/07/06 09:15:50 by hgranule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,7 +102,7 @@ a_dir: o_dir
 $(O_DIR)/%.o: $(C_DIR)/%.c
 	@make o_dir
 	@echo "\033[1m\033[38;2;255;255;0mCompiling : \033[7m$<\033[0m\033[1m\033[38;2;255;255;0m <<\033[0m";
-	@$(CC) $(CCFLAGS) -c $< -o $@ -I$(H_DIR); 
+	@$(CC) $(CCFLAGS) -c $< -o $@ -I$(H_DIR);
 
 libft%.a: a_dir
 	$(eval EMPTY = $(shell echo $(patsubst libft%.a, %O, $@) | tr a-z A-Z))
