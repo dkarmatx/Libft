@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 20:02:57 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/03 15:44:26 by hgranule         ###   ########.fr       */
+/*   Created: 2019/04/15 10:29:00 by hgranule          #+#    #+#             */
+/*   Updated: 2019/04/24 07:42:17 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# include <string.h>
-# include "ft_ctype.h"
-# include "ft_io.h"
-# include "ft_list.h"
-# include "ft_dlist.h"
-# include "ft_mem.h"
-# include "ft_string.h"
-# include "get_next_line.h"
+# include "libft.h"
+
+# ifndef BUFF_SIZE
+# 	define BUFF_SIZE 1000
+# endif
+
+typedef	struct	s_fcache
+{
+	int		fd;
+	size_t	size;
+	char	*mem;
+}				t_fcache;
+
+int				get_next_line(const int fd, char **line);
 
 #endif

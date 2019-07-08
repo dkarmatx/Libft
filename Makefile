@@ -22,10 +22,14 @@ O_DIR = $(WORK_SPACE)/objs
 A_DIR = $(WORK_SPACE)/alibs
 C_DIR = $(WORK_SPACE)/srcs
 
-STD_LIB =		ctype io list dlist mem string
+STD_LIB =		ctype io list dlist mem string gnl
 STD_LIBS =		$(patsubst %, libft%.a, $(STD_LIB))
 LIBS =			$(patsubst %, $(A_DIR)/%, $(STD_LIBS))
 ALL_O =			$(foreach lib, $(shell echo $(STD_LIB) | tr a-z A-Z), $(patsubst %, $(O_DIR)/%.o, $($(lib))))
+
+GNLO =			$(patsubst %, $(O_DIR)/%.o, $(GNL))
+GNLS =			$(patsubst %, $(C_DIR)/%.c, $(GNL))
+GNL =			get_next_line
 
 CTYPEO =		$(patsubst %, $(O_DIR)/%.o, $(CTYPE))
 CTYPES =		$(patsubst %, $(C_DIR)/%.c, $(CTYPE))
