@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 10:28:29 by hgranule          #+#    #+#             */
-/*   Updated: 2019/04/24 03:00:46 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/07/26 08:41:57 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static t_list	*fd_init(const int fd, t_list **db)
 				return (file);
 			file = file->next;
 		}
-	if (!(file = ft_lstnew(&newfd, sizeof(newfd))))
+	if (!(file = ft_lstnew(&newfd, sizeof(t_fcache))))
 		return (0);
 	if (!(*db))
 		*db = file;

@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 00:52:59 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/03 06:31:40 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/07/26 08:42:15 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ size_t			ft_strlen(const char *s)
 	unsigned long			longc;
 
 	chr = (const char *)s;
-	while (((unsigned long)chr & (sizeof(longc) - 1)) != 0)
+	while (((unsigned long)chr & (sizeof(long) - 1)) != 0)
 	{
 		if (*chr == 0)
 			return (chr - s);
