@@ -6,7 +6,7 @@
 #    By: hgranule <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 20:36:01 by hgranule          #+#    #+#              #
-#    Updated: 2019/08/03 10:24:00 by hgranule         ###   ########.fr        #
+#    Updated: 2019/08/03 11:01:22 by hgranule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ DLIST =			ft_dlstnew ft_dlstpush ft_dlstunshift \
 				ft_dlstget ft_dlstrget ft_dlstinsert \
 				ft_dlstrmelem ft_dlstcut ft_dlstdel \
 				ft_dlstshift ft_dlstswap ft_dlst_gnsort \
-				ft_dlst_rgnsort ft_dlst_count \
+				ft_dlst_rgnsort ft_dlst_count ft_dlst_maparr \
 				\
 				ft_memdup ft_memcpy
 				# IMPORT FUNCTIONS

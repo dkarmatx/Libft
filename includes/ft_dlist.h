@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 12:36:12 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/03 07:50:23 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/08/03 11:00:53 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,12 @@ void				ft_dlst_rgnsort(t_dlist **dl, int (*cmp)(void *, void *));
 ** a func {F} and returned non zero
 */
 size_t				ft_dlst_count(t_dlist *start, int (*f)(void *));
+
+/*
+** Makes a snap of elements's content to null-terminated array.
+** If f => content => non-zero, it will be in a snapshot.
+*/
+void				**ft_dlst_snaparr(t_dlist *start, int (*f)(void *));
 
 /*
 ** ============ OLD FUNCS =====================================================
