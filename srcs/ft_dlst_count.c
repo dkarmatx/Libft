@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlstrmelem.c                                    :+:      :+:    :+:   */
+/*   ft_dlst_count.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/03 14:45:42 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/03 07:20:59 by hgranule         ###   ########.fr       */
+/*   Created: 2019/08/03 06:57:42 by hgranule          #+#    #+#             */
+/*   Updated: 2019/08/03 07:04:04 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_dlist.h"
 #include <stdlib.h>
 
-void	ft_dlstrmelem(t_dlist **deldlst)
+size_t		ft_dlst_count(t_dlist *start, int (*f)(void *))
 {
-	t_dlist		*removed;
+	size_t		len;
 
-	if (!deldlst || !(*deldlst))
-		return ;
-	removed = ft_dlstcut(deldlst);
-	if (removed->size && removed->content)
-		free(removed->content);
-	free(removed);
-}
-
-void	ft_dlst_delcut(t_dlist **deldlst, void (*rmfunc)(void *))
-{
-	t_dlist		*removed;
-
-	if (!deldlst || !(*deldlst))
-		return ;
-	removed = ft_dlstcut(deldlst);
-	rmfunc((*deldlst)->content);
-	free(removed);
+	len = 0;
+	while (start)
+	{
+		if ((*f)(start->content))
+			++len;
+		start->next;
+	}
+	return (len);
 }
