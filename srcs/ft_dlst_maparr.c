@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/03 06:53:02 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/03 10:58:32 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/08/06 07:29:06 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void		**ft_dlst_snaparr(t_dlist *start, int (*f)(void *))
 			cont_arr[++i] = start->content;
 		start = start->content;
 	}
-	return (cont_arr);
+	return ((void **)cont_arr);
 }

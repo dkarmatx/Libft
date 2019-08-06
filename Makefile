@@ -6,14 +6,14 @@
 #    By: hgranule <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 20:36:01 by hgranule          #+#    #+#              #
-#    Updated: 2019/08/03 11:01:22 by hgranule         ###   ########.fr        #
+#    Updated: 2019/08/06 07:32:46 by hgranule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 WORK_SPACE = $(shell pwd)
 CC = gcc
-CCFLAGS = -Wall -Werror -Wextra
+CCFLAGS = -g -Wall -Werror -Wextra
 EMPTY =
 TMP =
 
@@ -22,7 +22,8 @@ O_DIR = $(WORK_SPACE)/objs
 A_DIR = $(WORK_SPACE)/alibs
 C_DIR = $(WORK_SPACE)/srcs
 
-STD_LIB =		ctype io list dlist mem string gnl
+STD_LIB =		ctype io list dlist mem string gnl lbuff
+
 STD_LIBS =		$(patsubst %, libft%.a, $(STD_LIB))
 LIBS =			$(patsubst %, $(A_DIR)/%, $(STD_LIBS))
 ALL_O =			$(foreach lib, $(shell echo $(STD_LIB) | tr a-z A-Z), $(patsubst %, $(O_DIR)/%.o, $($(lib))))
@@ -73,6 +74,10 @@ MEM =			ft_memdel ft_memalloc ft_memset \
 				ft_memmove ft_memchr ft_memcmp \
 				ft_realloc ft_memdup
 
+LBUFFO =		$(patsubst %, $(O_DIR)/%.o, $(LBUFF))
+LBUFFS =		$(patsubst %, $(C_DIR)/%.c, $(LBUFF))
+LBUFF =			ft_lbuffer_io
+
 STRINGO =		$(patsubst %, $(O_DIR)/%.o, $(STRING))
 STRINGS =		$(patsubst %, $(C_DIR)/%.c, $(STRING))
 STRING =		ft_strnew ft_strdup ft_strchr \
@@ -86,7 +91,7 @@ STRING =		ft_strnew ft_strdup ft_strchr \
 				ft_strjoin ft_strtrim ft_strsplit \
 				ft_lltoa_base ft_itoa ft_atoll_base \
 				ft_atoi_base ft_atoi ft_countw_delim ft_strccpy \
-				ft_strsplits\
+				ft_strsplits ft_strcate\
 				\
 				ft_isspace ft_memchr ft_bzero ft_memcpy \
 				ft_memdel ft_memalloc

@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlst_count.c                                    :+:      :+:    :+:   */
+/*   ft_strcate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/03 06:57:42 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/06 07:28:40 by hgranule         ###   ########.fr       */
+/*   Created: 2019/04/06 23:37:01 by hgranule          #+#    #+#             */
+/*   Updated: 2019/08/06 07:11:04 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_dlist.h"
-#include <stdlib.h>
+#include "ft_string.h"
 
-size_t		ft_dlst_count(t_dlist *start, int (*f)(void *))
+char	*ft_strcate(char *s1, const char *s2)
 {
-	size_t		len;
+	size_t	s1_len;
+	size_t  s2_len;
 
-	len = 0;
-	while (start)
-	{
-		if ((*f)(start->content))
-			++len;
-		start = start->next;
-	}
-	return (len);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	ft_strcpy(&(s1[s1_len]), s2);
+	return (s1_len + s2_len + s1);
 }
