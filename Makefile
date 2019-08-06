@@ -6,7 +6,7 @@
 #    By: hgranule <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 20:36:01 by hgranule          #+#    #+#              #
-#    Updated: 2019/08/06 07:32:46 by hgranule         ###   ########.fr        #
+#    Updated: 2019/08/06 19:17:07 by hgranule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ O_DIR = $(WORK_SPACE)/objs
 A_DIR = $(WORK_SPACE)/alibs
 C_DIR = $(WORK_SPACE)/srcs
 
-STD_LIB =		ctype io list dlist mem string gnl lbuff
+STD_LIB =		ctype io list dlist mem string gnl lbuff awltr
 
 STD_LIBS =		$(patsubst %, libft%.a, $(STD_LIB))
 LIBS =			$(patsubst %, $(A_DIR)/%, $(STD_LIBS))
@@ -78,6 +78,10 @@ LBUFFO =		$(patsubst %, $(O_DIR)/%.o, $(LBUFF))
 LBUFFS =		$(patsubst %, $(C_DIR)/%.c, $(LBUFF))
 LBUFF =			ft_lbuffer_io
 
+AWLTRO =		$(patsubst %, $(O_DIR)/%.o, $(AWLTR))
+AWLTRS =		$(patsubst %, $(C_DIR)/%.c, $(AWLTR))
+AWLTR =			ft_awl_bltn
+
 STRINGO =		$(patsubst %, $(O_DIR)/%.o, $(STRING))
 STRINGS =		$(patsubst %, $(C_DIR)/%.c, $(STRING))
 STRING =		ft_strnew ft_strdup ft_strchr \
@@ -111,7 +115,7 @@ a_dir: o_dir
 
 $(O_DIR)/%.o: $(C_DIR)/%.c
 	@make o_dir
-	@echo "\033[1m\033[38;2;255;255;0mCompiling : \033[7m$<\033[0m\033[1m\033[38;2;255;255;0m <<\033[0m";
+	@echo "\033[1m\033[38;2;0;60;255mCompiling : \033[7m$<\033[0m\033[1m\033[38;2;0;60;255m <<\033[0m";
 	@$(CC) $(CCFLAGS) -c $< -o $@ -I$(H_DIR);
 
 libft%.a: a_dir
