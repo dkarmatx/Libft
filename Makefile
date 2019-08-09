@@ -6,7 +6,7 @@
 #    By: hgranule <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 20:36:01 by hgranule          #+#    #+#              #
-#    Updated: 2019/08/06 19:17:07 by hgranule         ###   ########.fr        #
+#    Updated: 2019/08/09 07:16:51 by hgranule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ O_DIR = $(WORK_SPACE)/objs
 A_DIR = $(WORK_SPACE)/alibs
 C_DIR = $(WORK_SPACE)/srcs
 
-STD_LIB =		ctype io list dlist mem string gnl lbuff awltr
+STD_LIB =		ctype io list dlist mem string gnl lbuff avltr
 
 STD_LIBS =		$(patsubst %, libft%.a, $(STD_LIB))
 LIBS =			$(patsubst %, $(A_DIR)/%, $(STD_LIBS))
@@ -78,9 +78,10 @@ LBUFFO =		$(patsubst %, $(O_DIR)/%.o, $(LBUFF))
 LBUFFS =		$(patsubst %, $(C_DIR)/%.c, $(LBUFF))
 LBUFF =			ft_lbuffer_io
 
-AWLTRO =		$(patsubst %, $(O_DIR)/%.o, $(AWLTR))
-AWLTRS =		$(patsubst %, $(C_DIR)/%.c, $(AWLTR))
-AWLTR =			ft_awl_bltn
+AVLTRO =		$(patsubst %, $(O_DIR)/%.o, $(AVLTR))
+AVLTRS =		$(patsubst %, $(C_DIR)/%.c, $(AVLTR))
+AVLTR =			ft_avl_balance_blt ft_avl_edit_blt ft_avl_srch_blt ft_avl_utils_blt \
+				ft_avl_api_del ft_avl_api_info ft_avl_api_nodecr
 
 STRINGO =		$(patsubst %, $(O_DIR)/%.o, $(STRING))
 STRINGS =		$(patsubst %, $(C_DIR)/%.c, $(STRING))
