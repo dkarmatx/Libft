@@ -6,7 +6,7 @@
 #    By: hgranule <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 20:36:01 by hgranule          #+#    #+#              #
-#    Updated: 2019/08/09 07:16:51 by hgranule         ###   ########.fr        #
+#    Updated: 2019/08/14 18:06:53 by hgranule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ O_DIR = $(WORK_SPACE)/objs
 A_DIR = $(WORK_SPACE)/alibs
 C_DIR = $(WORK_SPACE)/srcs
 
-STD_LIB =		ctype io list dlist mem string gnl lbuff avltr
+STD_LIB =		ctype io list dlist mem string gnl lbuff avltr dstr
 
 STD_LIBS =		$(patsubst %, libft%.a, $(STD_LIB))
 LIBS =			$(patsubst %, $(A_DIR)/%, $(STD_LIBS))
@@ -31,6 +31,10 @@ ALL_O =			$(foreach lib, $(shell echo $(STD_LIB) | tr a-z A-Z), $(patsubst %, $(
 GNLO =			$(patsubst %, $(O_DIR)/%.o, $(GNL))
 GNLS =			$(patsubst %, $(C_DIR)/%.c, $(GNL))
 GNL =			get_next_line
+
+DSTRO =			$(patsubst %, $(O_DIR)/%.o, $(DSTR))
+DSTRS =			$(patsubst %, $(C_DIR)/%.c, $(DSTR))
+DSTR =			dstr_new
 
 CTYPEO =		$(patsubst %, $(O_DIR)/%.o, $(CTYPE))
 CTYPES =		$(patsubst %, $(C_DIR)/%.c, $(CTYPE))
