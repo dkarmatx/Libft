@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 16:47:39 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/14 19:42:00 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/08/14 21:41:29 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ typedef struct		s_dyn_string
 }					t_dyn_string;
 
 DSTRING			*dstr_new(const char *src);
-ssize_t			dstr_insert_str(DSTRING *dst, DSTRING *src, ssize_t ind);
+void			dstr_del(DSTRING **dst);
+ssize_t			dstr_insert_str(DSTRING *dst, char *src, ssize_t ind);
+ssize_t			dstr_insert_dstr(DSTRING *dst, DSTRING *src, ssize_t ind);
 DSTRING			*dstr_slice(DSTRING *src, ssize_t bi, ssize_t ei);
 
 #endif

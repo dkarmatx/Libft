@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 16:46:00 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/14 19:54:29 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/08/14 21:40:54 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,33 @@ DSTRING			*dstr_slice(DSTRING *src, ssize_t bi, ssize_t ei)
 	return (dstr);
 }
 
-ssize_t			dstr_insert_str(DSTRING *dst, DSTRING *src, ssize_t ind)
+void			dstr_del(DSTRING **dst)
+{
+	if (!dst || !(*dst))
+		return ;
+	if ((*dst)->txt)
+		free((*dst)->txt);
+	if ((*dst))
+		free(*dst);
+	*dst = 0;
+}
+
+ssize_t			dstr_insert_str(DSTRING *dst, char *src, ssize_t ind)
+{
+	DSTRING		*tmp;
+
+	if (!src)
+		return (ind);
+	if (!(tmp = dstr_new(src)))
+		return (-1);
+	if (!dst)
+		return (-1);
+	ind = dstr_insert_dstr(dst, tmp, ind);
+	dstr_del(&tmp);
+	return (ind);
+}
+
+ssize_t			dstr_insert_dstr(DSTRING *dst, DSTRING *src, ssize_t ind)
 {
 	const ssize_t		nlen = src->strlen + dst->strlen;
 	const ssize_t		nbks = (nlen / DSTR_BLK_SZ) + 1;
