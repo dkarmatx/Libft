@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 06:24:44 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/09 07:11:12 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/08/17 19:49:57 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,13 @@ int				avlb_stree_destroy(t_avln *node, void (*f)(void *));
 ** Returns 0 if it is not exist.
 */
 t_avln			*avlb_search(t_avln *node, const char *key);
+
+/*
+** BUILTN FUNC
+** iterate every node of a tree and apply a function to each of them
+** to get a words arrray.
+*/
+void		avlb_recur_trtowr(t_avln *nd, char **wr, int *k, \
+DSTRING *(*f)(t_avln *));
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 06:57:05 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/09 06:58:07 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/08/17 19:55:05 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,14 @@ int				ft_avl_set(t_avl_tree *tree, t_avln *newn)
 	return (0);
 }
 
-t_avl_tree		*ft_avl_tree_create(void (*rm_f))
+t_avl_tree		*ft_avl_tree_create(void (*rm_f), DSTRING *(*dstr)(t_avln *))
 {
 	t_avl_tree		*tree;
 
 	if (!(tree = ft_memalloc(sizeof(t_avl_tree))))
 		return (0);
+	if (!dstr)
+		tree->to_dstr_func = avln_to_string_k_str;
 	tree->rm_func = rm_f;
 	return (tree);
 }

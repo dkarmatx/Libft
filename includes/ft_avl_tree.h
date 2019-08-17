@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 11:55:51 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/09 07:14:34 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/08/17 19:57:11 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_AVL_TREE_H
 
 # include <stdlib.h>
+# include "dstring.h"
 
 typedef struct			s_avl_node
 {
@@ -29,6 +30,7 @@ typedef struct			s_avl_tree
 {
 	struct s_avl_node	*root;
 	void				(*rm_func)(void *cont);
+	DSTRING 			*(*to_dstr_func)(t_avln *);
 }						t_avl_tree;
 
 /*
@@ -36,7 +38,7 @@ typedef struct			s_avl_tree
 ** Creating a new tree struct
 ** {rm_func()} - fucntion wich deletes content of a nodes
 */
-t_avl_tree		*ft_avl_tree_create(void (*rm_f));
+t_avl_tree		*ft_avl_tree_create(void (*rm_f), DSTRING *(*f)(t_avln *));
 
 /*
 ** API FUNC
@@ -93,5 +95,19 @@ int				ft_avl_tree_free(t_avl_tree *tree);
 ** Returns 0 if searching fails
 */
 t_avln			*ft_avl_search(t_avl_tree *tree, const char *key);
+
+/*
+** FUNCTION TAKES A CONTENT OF A TREE AND RETURN DSTRING
+**
+** STANDART OF TO DSTRING FUNCTION OF AVL_TREE
+*/
+DSTRING			*avln_to_string_k_str(t_avln *node);
+
+/*
+** Function for creating a array of words from nodes.
+**
+** Callback function f creates a DSTING-words from nodes.
+*/
+char			**ft_avl_tree_to_warr(t_avl_tree *tree);
 
 #endif
