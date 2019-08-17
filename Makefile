@@ -6,7 +6,7 @@
 #    By: hgranule <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 20:36:01 by hgranule          #+#    #+#              #
-#    Updated: 2019/08/14 18:06:53 by hgranule         ###   ########.fr        #
+#    Updated: 2019/08/17 17:17:44 by hgranule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ GNL =			get_next_line
 
 DSTRO =			$(patsubst %, $(O_DIR)/%.o, $(DSTR))
 DSTRS =			$(patsubst %, $(C_DIR)/%.c, $(DSTR))
-DSTR =			dstr_new
+DSTR =			dstr_insert dstr_mem dstr_slice dstr_swpc
 
 CTYPEO =		$(patsubst %, $(O_DIR)/%.o, $(CTYPE))
 CTYPES =		$(patsubst %, $(C_DIR)/%.c, $(CTYPE))

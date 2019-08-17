@@ -1,52 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dstr_new.c                                         :+:      :+:    :+:   */
+/*   dstr_insert.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/14 16:46:00 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/14 21:40:54 by hgranule         ###   ########.fr       */
+/*   Created: 2019/08/17 17:14:26 by hgranule          #+#    #+#             */
+/*   Updated: 2019/08/17 17:15:00 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dstring.h"
 
-DSTRING			*dstr_slice(DSTRING *src, ssize_t bi, ssize_t ei)
+ssize_t			dstr_insert_ch(DSTRING *dst, char ch, ssize_t ind)
 {
-	DSTRING		*dstr;
-	ssize_t		ri[2];
+	DSTRING		*tmp;
+	char		fake[2];
 
-	ri[0] = (bi < 0) ? (src->strlen) + bi : bi;
-	ri[1] = (ei < 0) ? (src->strlen) + ei : ei;
-	ri[0] = (ri[0] < 0) ? 0 : ri[0];
-	ri[1] = (ri[1] < 0) ? 0 : ri[1];
-	ri[0] = (ri[0] > src->strlen) ? src->strlen : ri[0];
-	ri[1] = (ri[1] > src->strlen) ? src->strlen : ri[1];
-	if (ri[0] >= ri[1])
-		return (dstr_new(0));
-	if (!(dstr = dstr_new(0)))
-		return (0);
-	dstr->strlen = ri[1] - ri[0];
-	dstr->bks = (dstr->strlen / DSTR_BLK_SZ) + 1;
-	if (!(dstr->txt = ft_memalloc(dstr->bks * DSTR_BLK_SZ)))
-	{
-		free(dstr);
-		return (0);
-	}
-	ft_memcpy(dstr->txt, &(src->txt[ri[0]]), dstr->strlen);
-	return (dstr);
-}
-
-void			dstr_del(DSTRING **dst)
-{
-	if (!dst || !(*dst))
-		return ;
-	if ((*dst)->txt)
-		free((*dst)->txt);
-	if ((*dst))
-		free(*dst);
-	*dst = 0;
+	fake[0] = ch;
+	fake[1] = '\0';
+	if (!(tmp = dstr_new(fake)))
+		return (-1);
+	if (!dst)
+		return (-1);
+	ind = dstr_insert_dstr(dst, tmp, ind);
+	dstr_del(&tmp);
+	return (ind);
 }
 
 ssize_t			dstr_insert_str(DSTRING *dst, char *src, ssize_t ind)
@@ -86,23 +65,4 @@ ssize_t			dstr_insert_dstr(DSTRING *dst, DSTRING *src, ssize_t ind)
 	dst->strlen = nlen;
 	dst->bks = nbks;
 	return (ind + src->strlen);
-}
-
-DSTRING			*dstr_new(const char *src)
-{
-	DSTRING		*dstr;
-
-	if (!(dstr = ft_memalloc(sizeof(DSTRING))))
-		return (0);
-	if (!src)
-		return (dstr);
-	dstr->strlen = ft_strlen(src);
-	dstr->bks = (dstr->strlen / DSTR_BLK_SZ) + 1;
-	if (!(dstr->txt = ft_memalloc(dstr->bks * DSTR_BLK_SZ)))
-	{
-		free(dstr);
-		return (0);
-	}
-	ft_memcpy(dstr->txt, src, (size_t)dstr->strlen);
-	return (dstr);
 }
