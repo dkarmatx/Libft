@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 07:00:30 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/17 19:53:02 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/08/17 20:04:16 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_avln			*ft_avl_search(t_avl_tree *tree, const char *key)
 	return (avlb_search(tree->root, key));
 }
 
-DSTRING		*avln_to_string_k_str(t_avln *node)
+DSTRING			*avln_todstring_key_val(t_avln *node)
 {
 	DSTRING		*res;
 
@@ -37,7 +37,8 @@ DSTRING		*avln_to_string_k_str(t_avln *node)
 	return (res);
 }
 
-char			**ft_avl_tree_to_warr(t_avl_tree *tree)
+char			**ft_avl_tree_to_warr(t_avl_tree *tree, \
+DSTRING *(*ds)(t_avln *))
 {
 	int			amount;
 	char		**warr;
@@ -49,6 +50,6 @@ char			**ft_avl_tree_to_warr(t_avl_tree *tree)
 	amount = ft_avl_sizeof(tree->root);
 	if (!(warr = ft_memalloc(sizeof(char *) * (amount + 1))))
 		return (0);
-	avlb_recur_trtowr(tree->root, warr, &k, tree->to_dstr_func);
+	avlb_recur_trtowr(tree->root, warr, &k, ds);
 	return (warr);
 }
