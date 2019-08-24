@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 14:45:42 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/03 07:20:59 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/08/24 07:10:29 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ void	ft_dlst_delcut(t_dlist **deldlst, void (*rmfunc)(void *))
 	if (!deldlst || !(*deldlst))
 		return ;
 	removed = ft_dlstcut(deldlst);
-	rmfunc((*deldlst)->content);
+	rmfunc(removed->content);
 	free(removed);
 }
