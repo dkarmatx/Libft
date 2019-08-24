@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 15:17:53 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/03 07:33:15 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/08/24 07:35:43 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	ft_dlstdel(t_dlist **dlst, size_t n)
 	}
 }
 
-void	ft_dlst_delf(t_dlist **dlst, size_t n, void (*rmf)(void *))
+void	ft_dlst_delf(t_dlist **dlst, size_t n, \
+void (*rmf)(void *, size_t))
 {
 	t_dlist		*tmp;
 
@@ -40,7 +41,7 @@ void	ft_dlst_delf(t_dlist **dlst, size_t n, void (*rmf)(void *))
 		return ;
 	while ((tmp = *dlst) && n--)
 	{
-		rmf((*dlst)->content);
+		rmf((*dlst)->content, (*dlst)->size);
 		(*dlst) = (*dlst)->next;
 		if (*dlst)
 			(*dlst)->prev = 0;

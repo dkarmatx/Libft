@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 12:36:12 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/03 11:00:53 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/08/24 07:35:39 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ void				ft_dlstinsert(t_dlist *insrt, t_dlist *prv, t_dlist *nxt);
 /*
 ** Cuts the element, applies RMFUNC to the content and then frees element.
 */
-void				ft_dlst_delcut(t_dlist **deldlst, void (*rmfunc)(void *));
+void				ft_dlst_delcut(t_dlist **deldlst, \
+void (*rmfunc)(void *, size_t));
 
 /*
 ** Cuts the list {*CUTDLST} and returning it.
@@ -74,7 +75,8 @@ t_dlist				*ft_dlstcut(t_dlist **cutdlst);
 ** Deletes the {N} elemnets from the begin of the list {DLS} with func RMF()
 ** if {N} == 0, then removes the hole list.
 */
-void				ft_dlst_delf(t_dlist **dls, size_t n, void (*rmf)(void *));
+void				ft_dlst_delf(t_dlist **dls, size_t n, \
+void (*rmf)(void *, size_t));
 
 /*
 ** Cuting the first element from begin of the {LIST} and returns it
