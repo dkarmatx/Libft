@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 20:57:10 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/06 07:11:19 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/09/01 11:49:59 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ unsigned int		ft_countw_delim(char const *s, char delim);
 char				*ft_strccpy(char *dst, const char *src, int c);
 char				**ft_strsplits(char const *s, char const *c);
 char				*ft_strcate(char *s1, const char *s2);
+void				*ft_mem_mem(const void *src, const void *sbmem, \
+size_t len, const size_t sblen);
 
 #endif

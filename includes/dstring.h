@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 16:47:39 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/17 17:39:37 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/09/01 14:47:58 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,17 @@
 
 # define DSTRING t_dyn_string
 
-# define DSTR_BLK_SZ 512
+# define DSTR_BLK_SZ 64
+
+# ifndef SIZE_T_MAX
+#	define SIZE_T_MAX ((size_t)-1)
+# endif
+
+# ifndef SSIZE_T_MAX
+#	define SSIZE_T_MAX ((ssize_t)0x0fffffffffffffff)
+# endif
+
+
 
 typedef struct		s_dyn_string
 {
@@ -64,5 +74,21 @@ DSTRING			*dstr_chr_swpc(DSTRING *dst, char ch, ssize_t ind);
 ** ei - end index, doesnt appear in new string. (<0 then f.t.e.)
 */
 DSTRING			*dstr_slice(DSTRING *src, ssize_t bi, ssize_t ei);
+
+/*
+** Returns a new string CUTTED from src. (src is changing)
+** bi - begin index (if < 0, then index from the end)
+** ei - end index, doesnt appear in new string. (<0 then f.t.e.)
+*/
+DSTRING			*dstr_slice_cut(DSTRING **src, ssize_t bi, ssize_t ei);
+
+/*
+** Searches a ch/str/dstr in a (SRC);
+** Returns an index of a ch (start index of a sub(str/dstr));
+** If searching fails, returns SIZE_T_MAX ((size_t) -1)
+*/
+size_t			dstr_search_ch(const DSTRING *src, const char ch);
+size_t			dstr_search_str(const DSTRING *src, const char *str);
+size_t			dstr_search_dstr(const DSTRING *src, const DSTRING *dstr);
 
 #endif
