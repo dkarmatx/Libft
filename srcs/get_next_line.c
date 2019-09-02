@@ -3,124 +3,80 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gdaemoni <gdaemoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 10:28:29 by hgranule          #+#    #+#             */
-/*   Updated: 2019/07/26 08:41:57 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/09/02 16:42:58 by gdaemoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "get_next_line.h"
+#include "dstring.h"
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-static t_list	*fd_init(const int fd, t_list **db)
+static void		b_ind_gnl(DSTRING *src, ssize_t bi, ssize_t ei, ssize_t *ri)
 {
-	t_fcache	newfd;
-	t_fcache	*content;
-	t_list		*file;
-
-	newfd.fd = fd;
-	newfd.mem = (void *)0;
-	newfd.size = 0;
-	if (fd < 0 && read(fd, 0, 0) < 0)
-		return (0);
-	if ((file = *db))
-		while (file)
-		{
-			if ((content = (t_fcache *)file->content)->fd == fd)
-				return (file);
-			file = file->next;
-		}
-	if (!(file = ft_lstnew(&newfd, sizeof(t_fcache))))
-		return (0);
-	if (!(*db))
-		*db = file;
-	else
-		ft_lstadd(db, file);
-	return (file);
+	ri[0] = (bi < 0) ? (src->strlen) + bi : bi;
+	ri[1] = (ei < 0) ? (src->strlen) + ei : ei;
+	ri[0] = (ri[0] < 0) ? 0 : ri[0];
+	ri[1] = (ri[1] < 0) ? 0 : ri[1];
+	ri[0] = (ri[0] > src->strlen) ? src->strlen : ri[0];
+	ri[1] = (ri[1] > src->strlen) ? src->strlen : ri[1];
 }
 
-static int		cache_pull(t_fcache **cache, char **line)
+static DSTRING	*dstr_slice_cut_gnl(DSTRING **src, ssize_t bi, ssize_t ei)
 {
-	size_t	clen;
-	char	*ccp;
-	char	*tmp;
+	DSTRING		*dstr_sl;
+	DSTRING		*dstr_deld;
+	DSTRING		*dstr_ol[2];
+	ssize_t		ri[4];
 
-	if ((ccp = ft_memchr((*cache)->mem, '\n', (*cache)->size)) == 0)
-		clen = (*cache)->size + 1;
-	else
-		clen = (ccp + 1) - (*cache)->mem;
-	if ((*line = (char *)ft_realloc(*line, clen)) == (char *)0)
+	b_ind_gnl(*src, bi, ei, ri);
+	if (ri[0] >= ri[1])
+		return (dstr_new(""));
+	ri[2] = 0;
+	ri[3] = (*src)->strlen;
+	dstr_ol[0] = dstr_slice(*src, ri[2], ri[0]);
+	dstr_ol[1] = dstr_slice(*src, ri[1], ri[3]);
+	dstr_sl = dstr_slice(*src, ri[0], ri[1] - 1 > 0 ? ri[1] - 1 : 0);
+	if (!dstr_ol[0] || !dstr_sl || !dstr_ol[1])
+		return (0);
+	dstr_del(src);
+	*src = dstr_ol[0];
+	dstr_deld = dstr_ol[1];
+	if ((dstr_insert_dstr(*src, dstr_ol[1], SSIZE_T_MAX)) < 0)
+		return (0);
+	dstr_del(&dstr_deld);
+	return (dstr_sl);
+}
+
+int				get_next_line(const int fd, DSTRING **line)
+{
+	static DSTRING	*buf_fd[FDS_MAX_LIMIT];
+	char			buf_rd[BUFF_SIZE + 1];
+	ssize_t			rd;
+	size_t			ind;
+
+	if (fd < 0 || (!line && (ind = 0) == 0))
 		return (-1);
-	ft_memcpy(*line, (*cache)->mem, clen - 1);
-	(*line)[clen - 1] = 0;
-	if (ccp)
+	if ((rd = 1) && !buf_fd[fd])
+		buf_fd[fd] = dstr_new("");
+	ind = dstr_search_ch(buf_fd[fd], '\n');
+	while (ind == (size_t)-1 && (rd = read(fd, buf_rd, BUFF_SIZE)) > 0)
 	{
-		(*cache)->size -= clen;
-		tmp = (char *)ft_memdup((*cache)->mem + clen, (*cache)->size);
-		ft_memdel((void **)&((*cache)->mem));
-		(*cache)->mem = tmp;
-		return (0);
-	}
-	ft_memdel((void **)&((*cache)->mem));
-	(*cache)->size = 0;
-	return (1);
-}
-
-static int		read_n_push(t_fcache **cache, char **line)
-{
-	ssize_t		rmem;
-	char		*tmp[3];
-	char		buff[BUFF_SIZE + 1];
-
-	while ((rmem = read((*cache)->fd, buff, BUFF_SIZE)) > 0)
-	{
-		buff[rmem] = 0;
-		if (!(tmp[2] = ft_memchr(buff, '\n', rmem)))
-			tmp[0] = ft_strjoin(*line, buff);
-		else
-		{
-			*tmp[2] = 0;
-			(*cache)->size = ft_strlen(tmp[2] + 1) + 1;
-			if (!(tmp[0] = ft_strjoin(*line, buff))
-			|| !(tmp[1] = ft_memdup(tmp[2] + 1, (*cache)->size)))
-				return (-1);
-			(*cache)->mem = tmp[1];
-		}
-		ft_memdel((void **)line);
-		if ((*line = tmp[0]) == 0)
-			return (-1);
-		if (tmp[2])
+		buf_rd[rd] = '\0';
+		dstr_insert_str(buf_fd[fd], buf_rd, buf_fd[fd]->strlen);
+		if ((ind = dstr_search_ch(buf_fd[fd], '\n')) != (size_t)-1)
 			break ;
 	}
-	return (rmem);
-}
-
-int				get_next_line(const int fd, char **line)
-{
-	static t_list		*data_bank = 0;
-	t_list				*file;
-	t_fcache			*cache;
-	int					state[2];
-
-	if (!line)
-		return (-1);
-	*line = ft_strnew(0);
-	state[0] = 1;
-	state[1] = 0;
-	if (!(file = fd_init(fd, &data_bank)))
-		return (-1);
-	cache = file->content;
-	if ((cache->size))
-		state[0] = cache_pull(&cache, line);
-	if (state[0])
-		state[1] = read_n_push(&cache, line);
-	if (state[1] < 0)
-		return (-1);
-	if (cache->size == 0 && !state[1] && !(**line))
+	if (ind != (size_t)-1)
+		*line = dstr_slice_cut_gnl(&buf_fd[fd], 0, ind + 1);
+	else
+		*line = dstr_slice_cut(&buf_fd[fd], 0, buf_fd[fd]->strlen);
+	if (rd == 0 && (*line)->strlen == 0)
 		return (0);
 	return (1);
 }
