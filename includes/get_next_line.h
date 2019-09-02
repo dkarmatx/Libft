@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gdaemoni <gdaemoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 10:29:00 by hgranule          #+#    #+#             */
-/*   Updated: 2019/04/24 07:42:17 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/09/02 16:43:58 by gdaemoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 # define GET_NEXT_LINE_H
 
 # include "libft.h"
+# include "dstring.h"
 
 # ifndef BUFF_SIZE
-# 	define BUFF_SIZE 1000
+#  define BUFF_SIZE 1000
 # endif
 
-typedef	struct	s_fcache
-{
-	int		fd;
-	size_t	size;
-	char	*mem;
-}				t_fcache;
+# ifndef FDS_MAX_LIMIT
+#  define FDS_MAX_LIMIT 1000
+# endif
 
-int				get_next_line(const int fd, char **line);
+int				get_next_line(const int fd, DSTRING **line);
 
 #endif
