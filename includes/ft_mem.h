@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 20:50:09 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/21 02:46:19 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/09/15 05:08:39 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define FT_MEM_H
 
 # include <string.h>
+
+typedef unsigned long	t_lword;
+typedef unsigned int	t_word;
+typedef unsigned char	t_byte;
 
 void				ft_memdel(void **ap);
 void				*ft_memalloc(size_t size);
