@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 17:17:35 by hgranule          #+#    #+#             */
-/*   Updated: 2019/07/15 01:32:54 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/09/18 05:59:31 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ char				**ft_strsplit(char const *s, char c)
 	init(&i, &w, &j);
 	tab = 0;
 	tablen = ft_countw_delim(s, c);
+	if (s == 0)
+		return (0);
 	if ((tab = (char **)malloc(sizeof(char *) * (tablen + 1))) != 0)
 	{
 		tab[tablen] = 0;
