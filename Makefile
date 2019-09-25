@@ -6,14 +6,14 @@
 #    By: hgranule <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 20:36:01 by hgranule          #+#    #+#              #
-#    Updated: 2019/09/01 12:41:42 by hgranule         ###   ########.fr        #
+#    Updated: 2019/09/25 22:54:45 by hgranule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 WORK_SPACE = $(shell pwd)
 CC = gcc
-CCFLAGS = -g -Wall -Werror -Wextra
+CCFLAGS = -O -Wall -Werror -Wextra
 EMPTY =
 TMP =
 
@@ -117,6 +117,11 @@ o_dir:
 
 a_dir: o_dir
 	@if ! [ -d $(A_DIR) ]; then mkdir $(A_DIR); fi;
+
+$(O_DIR)/%.o: $(C_DIR)/%.s
+	@make o_dir
+	@echo "\033[1m\033[38;2;0;60;255mCompiling : \033[7m$<\033[0m\033[1m\033[38;2;0;60;255m <<\033[0m";
+	@$(HOME)/.brew/bin/nasm -f macho64 $< -o $@
 
 $(O_DIR)/%.o: $(C_DIR)/%.c
 	@make o_dir
