@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 15:17:53 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/24 07:35:43 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/10/06 23:28:43 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void (*rmf)(void *, size_t))
 		return ;
 	while ((tmp = *dlst) && n--)
 	{
-		rmf((*dlst)->content, (*dlst)->size);
+		if (rmf)
+			rmf((*dlst)->content, (*dlst)->size);
 		(*dlst) = (*dlst)->next;
 		if (*dlst)
 			(*dlst)->prev = 0;

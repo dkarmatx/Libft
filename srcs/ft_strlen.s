@@ -13,18 +13,22 @@ _pd_beg:		test		rax, 0111b				; Padding our address in RAX to 8
 				jmp			_pd_beg
 
 
-_main_loop:		mov			rdx, [rax]				; inverted
-				mov			rbx, [rax]				; substituted
-				mov			rcx, 0101010101010101h	; Magix number 1
+_main_loop:		mov			rcx, 0101010101010101h  ; Magix number 1
+				mov			rsi, 8080808080808080h  ; Magix number 2
+				mov			r8, 8h					; Size of longword
+
+
+_m_bg_loop:		mov			rdx, [rax]              ; inverted
+				mov			rbx, rdx                ; substituted
+
+				sub			rbx, rcx                ; Substitution of a magix
+				and			rbx, rsi                ; Making magical AND
 				not			rdx
-				sub			rbx, rcx				; Substitution of a magix
 				and			rbx, rdx
-				mov			rcx, 8080808080808080h	; Magix number 2
-				and			rbx, rcx				; Making magical AND
-				cmp			rbx, 0h					; if not zero
-				jnz			_inject_byte			;	FIND A ZERO_BYTE
-				add			rax, 8h
-				jmp			_main_loop
+				not			rbx                     ; if not zero
+				jnz			_inject_byte            ; FIND A ZERO_BYTE
+				add			rax, r8
+				jmp			_m_bg_loop
 
 
 _inject_byte:	cmp			byte [rax], 0h

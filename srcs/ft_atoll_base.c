@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 15:51:56 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/03 06:27:13 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/09/29 04:30:28 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,15 @@ static int		sign_checker(char **it)
 
 static int		get_num_from_base(char c, int base)
 {
-	int		i;
-	char	*alph;
+	int			i;
+	const char	*alphu;
+	const char	*alph;
 
 	i = -1;
-	alph = "0123456789abcdefghijklmnopqrstuv";
+	alph = "0123456789abcdefghijklmnopqrstuvwxyz";
+	alphu = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	while (++i < base)
-		if (c == alph[i])
+		if (c == alph[i] || c == alphu[i])
 			return (i);
 	return (-1);
 }
