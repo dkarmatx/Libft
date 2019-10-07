@@ -6,14 +6,14 @@
 #    By: hgranule <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 20:36:01 by hgranule          #+#    #+#              #
-#    Updated: 2019/09/27 09:54:56 by hgranule         ###   ########.fr        #
+#    Updated: 2019/10/07 07:34:53 by hgranule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 WORK_SPACE = $(shell pwd)
 CC = gcc
-CCFLAGS = -O -Wall -Werror -Wextra
+CCFLAGS = -Wall -Werror -Wextra
 EMPTY =
 TMP =
 
@@ -122,10 +122,10 @@ o_dir:
 a_dir: o_dir
 	@if ! [ -d $(A_DIR) ]; then mkdir $(A_DIR); fi;
 
-$(O_DIR)/%.o: $(C_DIR)/%.s
-	@make o_dir
-	@echo "\033[1m\033[38;2;0;60;255mCompiling : \033[7m$<\033[0m\033[1m\033[38;2;0;60;255m <<\033[0m";
-	@$(HOME)/.brew/bin/nasm -f macho64 $< -o $@
+# $(O_DIR)/%.o: $(C_DIR)/%.s
+# 	@make o_dir
+# 	@echo "\033[1m\033[38;2;0;60;255mCompiling : \033[7m$<\033[0m\033[1m\033[38;2;0;60;255m <<\033[0m";
+# 	@$(HOME)/.brew/bin/nasm -f macho64 $< -o $@
 
 $(O_DIR)/%.o: $(C_DIR)/%.c
 	@make o_dir
