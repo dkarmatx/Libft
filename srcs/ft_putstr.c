@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 22:32:30 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/02 22:22:48 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/10/20 09:56:30 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putstr(char const *s)
 {
-	ft_putstr_fd(s, 1);
+	ft_putstr_fd(s, STDOUT_FILENO);
 }

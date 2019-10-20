@@ -6,14 +6,14 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 21:37:35 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/06 09:33:12 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/10/20 09:55:56 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_IO_H
 # define FT_IO_H
 
-# include <string.h>
+# include <unistd.h>
 
 void			ft_putchar(char c);
 void			ft_putstr(char const *s);

@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 22:31:18 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/02 22:19:50 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/10/20 09:56:12 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putendl(char const *s)
 {
-	ft_putendl_fd(s, 1);
+	ft_putendl_fd(s, STDOUT_FILENO);
 }
