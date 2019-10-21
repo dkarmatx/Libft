@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gdaemoni <gdaemoni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 10:28:29 by hgranule          #+#    #+#             */
-/*   Updated: 2019/09/02 16:42:58 by gdaemoni         ###   ########.fr       */
+/*   Updated: 2019/10/21 10:25:56 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int				get_next_line(const int fd, DSTRING **line)
 		*line = dstr_slice_cut_gnl(&buf_fd[fd], 0, ind + 1);
 	else
 		*line = dstr_slice_cut(&buf_fd[fd], 0, buf_fd[fd]->strlen);
-	if (rd == 0 && (*line)->strlen == 0)
-		return (0);
+	if (rd <= 0 && (*line)->strlen == 0)
+		return ((int)rd);
 	return (1);
 }
