@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/27 09:47:43 by hgranule          #+#    #+#             */
-/*   Updated: 2019/09/27 09:53:36 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/04 16:03:13 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int			dbg_timer_checkp(t_tspec *ctimer);
 
 t_time		dbg_timer_point_ns(void);
 t_time		dbg_timer_point_ms(void);
+t_time		dbg_timer_point_mks(void);
 t_time		dbg_timer_point(void);
 
 #endif

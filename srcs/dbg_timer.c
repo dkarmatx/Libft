@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/27 09:46:47 by hgranule          #+#    #+#             */
-/*   Updated: 2019/09/27 09:51:13 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/04 15:54:01 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int					dbg_timer_sub(t_tspec *dst, t_tspec *src)
 	res.tv_nsec = 0;
 	res.tv_sec = 0;
 	res.tv_sec = dst->tv_sec - src->tv_sec;
-	if (dst->tv_nsec >= dst->tv_nsec)
+	if (dst->tv_nsec >= src->tv_nsec)
 		res.tv_nsec = dst->tv_nsec - src->tv_nsec;
 	else
 	{
