@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 10:28:29 by hgranule          #+#    #+#             */
-/*   Updated: 2019/10/21 13:26:45 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/07 09:12:31 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,12 @@ int				get_next_line(const int fd, DSTRING **line)
 		return (-1);
 	if ((rd = 1) && !buf_fd[fd])
 		buf_fd[fd] = dstr_new("");
-	ind = dstr_search_ch(buf_fd[fd], '\n');
+	ind = dstr_search_ch(buf_fd[fd], '\n', 0);
 	while (ind == (size_t)-1 && (rd = read(fd, buf_rd, BUFF_SIZE)) > 0)
 	{
 		buf_rd[rd] = '\0';
 		dstr_insert_str(buf_fd[fd], buf_rd, buf_fd[fd]->strlen);
-		if ((ind = dstr_search_ch(buf_fd[fd], '\n')) != (size_t)-1)
+		if ((ind = dstr_search_ch(buf_fd[fd], '\n', 0)) != (size_t)-1)
 			break ;
 	}
 	if (ind != (size_t)-1)

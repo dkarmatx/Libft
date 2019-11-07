@@ -6,7 +6,7 @@
 /*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 16:47:39 by hgranule          #+#    #+#             */
-/*   Updated: 2019/09/01 14:47:58 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/07 09:12:09 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ DSTRING			*dstr_slice_cut(DSTRING **src, ssize_t bi, ssize_t ei);
 ** Returns an index of a ch (start index of a sub(str/dstr));
 ** If searching fails, returns SIZE_T_MAX ((size_t) -1)
 */
-size_t			dstr_search_ch(const DSTRING *src, const char ch);
-size_t			dstr_search_str(const DSTRING *src, const char *str);
-size_t			dstr_search_dstr(const DSTRING *src, const DSTRING *dstr);
+size_t			dstr_search_ch(const DSTRING *src, const char ch, size_t offset);
+size_t			dstr_search_str(const DSTRING *src, const char *str, size_t offset);
+size_t			dstr_search_dstr(const DSTRING *src, const DSTRING *dstr, size_t offset);
 
 #endif
