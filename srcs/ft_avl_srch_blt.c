@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_avl_srch_blt.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 07:04:07 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/17 19:47:05 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/15 03:03:03 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ DSTRING *(*f)(t_avln *))
 
 	if (nd == 0)
 		return ;
+	avlb_recur_trtowr(nd->left, wr, k, f);
 	result = f(nd);
 	wr[*k] = ft_strdup(result->txt);
 	*k += 1;
 	dstr_del(&result);
-	avlb_recur_trtowr(nd->left, wr, k, f);
 	avlb_recur_trtowr(nd->right, wr, k, f);
 }
 
