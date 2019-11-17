@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dstr_slice.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 17:15:19 by hgranule          #+#    #+#             */
-/*   Updated: 2019/09/01 14:47:23 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/17 05:45:32 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,17 @@ DSTRING			*dstr_slice_cut(DSTRING **src, ssize_t bi, ssize_t ei)
 		return (0);
 	dstr_del(&dstr_deld);
 	return (dstr_sl);
+}
+
+int			dstr_slice_del(DSTRING **src, ssize_t bi, ssize_t ei)
+{
+	DSTRING	*cutted;
+
+	if (!src || !(*src))
+		return (-1);
+	cutted = dstr_slice_cut(src, bi, ei);
+	if (!cutted)
+		return (-2);
+	dstr_del(&cutted);
+	return (0);
 }

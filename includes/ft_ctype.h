@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ctype.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 20:53:34 by hgranule          #+#    #+#             */
-/*   Updated: 2019/05/02 22:18:41 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/17 06:13:16 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int			ft_isalnum(int c);
 int			ft_isascii(int c);
 int			ft_isprint(int c);
 int			ft_isspace(int c);
+int			ft_str_isnumeric(const char *str, int base);
 
 #endif

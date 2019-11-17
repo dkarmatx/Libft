@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dstr_mem.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 16:46:00 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/17 17:18:01 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/17 06:10:41 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@ void			dstr_del(DSTRING **dst)
 	if ((*dst))
 		free(*dst);
 	*dst = 0;
+}
+
+char			*dstr_flush(DSTRING **dstr)
+{
+	char		*res;
+
+	res = ft_memdup((*dstr)->txt, (*dstr)->strlen + 1);
+	dstr_del(dstr);
+	return (res);
 }
 
 DSTRING			*dstr_new(const char *src)
