@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lbuffer_io.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 06:10:35 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/06 07:44:45 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/20 17:19:00 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ t_lbuf			*ft_lb_readbytes(int fd, ssize_t *summ_rmem)
 	buffer[1] = buffer[0];
 	while ((rmem = read(fd, buff, LB_STR_SZ)) > 0 && rmem)
 	{
-		if (rmem == LB_STR_SZ && !(buffer[1]->next = ft_memalloc(sizeof(t_lbuf))))
+		if (rmem == LB_STR_SZ && !(buffer[1]->next = \
+		ft_memalloc(sizeof(t_lbuf))))
 		{
 			frmem = -1;
-			break;
+			break ;
 		}
 		ft_memcpy(buffer[1]->str, buff, rmem);
 		buffer[1] = buffer[1]->next;

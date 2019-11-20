@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   dbg_timer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/27 09:46:47 by hgranule          #+#    #+#             */
-/*   Updated: 2019/11/04 15:54:01 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/20 17:25:27 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dbg_tools.h"
 
-static t_tspec		timer;
+static t_tspec		g_timer;
 
 int					dbg_timer_init(t_tspec *spec)
 {
-	extern t_tspec	timer;
+	extern t_tspec	g_timer;
 
 	if (spec == 0)
-		return (clock_gettime(CLOCK_REALTIME, &timer));
-	timer.tv_nsec = spec->tv_nsec;
-	timer.tv_sec = spec->tv_sec;
+		return (clock_gettime(CLOCK_REALTIME, &g_timer));
+	g_timer.tv_nsec = spec->tv_nsec;
+	g_timer.tv_sec = spec->tv_sec;
 	return (0);
 }
 
@@ -52,11 +52,11 @@ int					dbg_timer_sub(t_tspec *dst, t_tspec *src)
 
 int					dbg_timer_checkp(t_tspec *ctimer)
 {
-	extern t_tspec	timer;
+	extern t_tspec	g_timer;
 
 	if (clock_gettime(CLOCK_REALTIME, ctimer) < 0)
 		return (-1);
-	if (dbg_timer_sub(ctimer, &timer) < 0)
+	if (dbg_timer_sub(ctimer, &g_timer) < 0)
 		return (-1);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 17:17:35 by hgranule          #+#    #+#             */
-/*   Updated: 2019/09/18 05:59:31 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/20 17:16:38 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ char				**ft_strsplit(char const *s, char c)
 	char			**tab;
 
 	init(&i, &w, &j);
-	tab = 0;
 	tablen = ft_countw_delim(s, c);
 	if (s == 0)
 		return (0);

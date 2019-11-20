@@ -6,7 +6,7 @@
 /*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 07:04:07 by hgranule          #+#    #+#             */
-/*   Updated: 2019/11/15 03:03:03 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/20 17:24:10 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ DSTRING *(*f)(t_avln *))
 	avlb_recur_trtowr(nd->right, wr, k, f);
 }
 
-t_avln			*avlb_search(t_avln *node, const char *key)
+t_avln		*avlb_search(t_avln *node, const char *key)
 {
 	int		cmp_res;
 

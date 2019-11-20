@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 01:37:58 by hgranule          #+#    #+#             */
-/*   Updated: 2019/09/17 22:01:55 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/20 17:18:31 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 #include <stdlib.h>
-
 
 static unsigned int	ft_countw_delims(char const *s, char const *delim)
 {
@@ -39,7 +38,6 @@ static unsigned int	ft_countw_delims(char const *s, char const *delim)
 		}
 	return (count);
 }
-
 
 static unsigned int	wordend(char const *s, char const *c, unsigned int i)
 {
@@ -78,7 +76,6 @@ char				**ft_strsplits(char const *s, char const *c)
 	init(&i, &w, &j);
 	if (!s)
 		return (0);
-	tab = 0;
 	tablen = ft_countw_delims(s, c);
 	if ((tab = (char **)malloc(sizeof(char *) * (tablen + 1))) != 0)
 	{

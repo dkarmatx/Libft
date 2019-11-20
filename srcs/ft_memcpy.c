@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 15:41:18 by hgranule          #+#    #+#             */
-/*   Updated: 2019/09/15 06:05:42 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/20 17:13:35 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static inline void		cpy_words(t_lword **dst, t_lword **src, size_t n)
 	}
 }
 
-void		*ft_memcpy(void *dst, const void *src, size_t len)
+void					*ft_memcpy(void *dst, const void *src, size_t len)
 {
 	t_lword	*dst_l;
 	t_lword	*src_l;

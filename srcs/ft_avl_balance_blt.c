@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_avl_balance_blt.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:30:37 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/09 07:00:46 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/20 17:19:33 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_avl_bltn.h"
 
-char			avlb_bfactor(t_avln *node)
+char		avlb_bfactor(t_avln *node)
 {
 	return (avlb_height(node->right) - avlb_height(node->left));
 }
 
-void			avlb_fixh(t_avln *node)
+void		avlb_fixh(t_avln *node)
 {
 	const char	hl = avlb_height(node->left);
 	const char	hr = avlb_height(node->right);

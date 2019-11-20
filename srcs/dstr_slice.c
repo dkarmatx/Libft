@@ -6,13 +6,14 @@
 /*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 17:15:19 by hgranule          #+#    #+#             */
-/*   Updated: 2019/11/17 05:45:32 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/20 17:26:49 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dstring.h"
 
-static void		dstr_b_indexes(DSTRING *src, ssize_t bi, ssize_t ei, ssize_t *ri)
+static void		dstr_b_indexes(DSTRING *src, ssize_t bi, \
+ssize_t ei, ssize_t *ri)
 {
 	ri[0] = (bi < 0) ? (src->strlen) + bi : bi;
 	ri[1] = (ei < 0) ? (src->strlen) + ei : ei;
@@ -69,7 +70,7 @@ DSTRING			*dstr_slice_cut(DSTRING **src, ssize_t bi, ssize_t ei)
 	return (dstr_sl);
 }
 
-int			dstr_slice_del(DSTRING **src, ssize_t bi, ssize_t ei)
+int				dstr_slice_del(DSTRING **src, ssize_t bi, ssize_t ei)
 {
 	DSTRING	*cutted;
 

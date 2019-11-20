@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_avl_edit_blt.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 06:55:13 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/09 06:55:26 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/20 17:20:06 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_avln		*avlb_insert(t_avln *node, t_avln *newn, void (*f)(void *))
 	if (node == 0)
 		return (newn);
 	if (ft_strcmp(node->key, newn->key) > 0)
-		node->left = avlb_insert(node->left,newn, f);
+		node->left = avlb_insert(node->left, newn, f);
 	else if (ft_strcmp(node->key, newn->key) < 0)
 		node->right = avlb_insert(node->right, newn, f);
 	else

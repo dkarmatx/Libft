@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dlstnew.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 12:50:40 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/03 07:13:11 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/20 17:19:13 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ft_mem.h"
 #include <stdlib.h>
 
-t_dlist		*ft_dlstnew(void *cont, size_t sz)
+t_dlist			*ft_dlstnew(void *cont, size_t sz)
 {
 	t_dlist		*res;
 

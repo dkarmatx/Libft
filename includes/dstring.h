@@ -6,7 +6,7 @@
 /*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 16:47:39 by hgranule          #+#    #+#             */
-/*   Updated: 2019/11/17 06:10:55 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/20 17:53:34 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,22 @@
 # include "stdlib.h"
 
 # define DSTRING t_dyn_string
-
 # define DSTR_BLK_SZ 64
 
 # ifndef SIZE_T_MAX
-#	define SIZE_T_MAX ((size_t)-1)
+#  define SIZE_T_MAX ((size_t)-1)
 # endif
 
 # ifndef SSIZE_T_MAX
-#	define SSIZE_T_MAX ((ssize_t)0x0fffffffffffffff)
+#  define SSIZE_T_MAX ((ssize_t)0x0fffffffffffffff)
 # endif
 
-
-
-typedef struct		s_dyn_string
+typedef struct	s_dyn_string
 {
-	char			*txt;
-	ssize_t			strlen;
-	ssize_t			bks;
-}					t_dyn_string;
+	char		*txt;
+	ssize_t		strlen;
+	ssize_t		bks;
+}				t_dyn_string;
 
 /*
 ** CREATES A NEW DSTRING FROM A SRC
@@ -95,9 +92,12 @@ int				dstr_slice_del(DSTRING **src, ssize_t bi, ssize_t ei);
 ** Returns an index of a ch (start index of a sub(str/dstr));
 ** If searching fails, returns SIZE_T_MAX ((size_t) -1)
 */
-size_t			dstr_search_ch(const DSTRING *src, const char ch, size_t offset);
-size_t			dstr_search_str(const DSTRING *src, const char *str, size_t offset);
-size_t			dstr_search_dstr(const DSTRING *src, const DSTRING *dstr, size_t offset);
+size_t			dstr_search_ch(const DSTRING *src, const char ch,\
+size_t offset);
+size_t			dstr_search_str(const DSTRING *src, const char *str,\
+size_t offset);
+size_t			dstr_search_dstr(const DSTRING *src, const DSTRING *dstr,\
+size_t offset);
 
 /*
 ** Deletes a string and give back a normal null-terminated string

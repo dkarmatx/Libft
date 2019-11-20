@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_avl_utils_blt.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 06:52:16 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/09 07:32:01 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/20 17:20:23 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_avl_bltn.h"
 
-char			avlb_height(t_avln *node)
+char		avlb_height(t_avln *node)
 {
 	return (node ? node->height : 0);
 }
 
-void			avlb_rmnode(t_avln *node, void (*f)(void *))
+void		avlb_rmnode(t_avln *node, void (*f)(void *))
 {
 	if (!node)
 		return ;
@@ -36,8 +36,7 @@ t_avln		*avlb_fake_node(t_avln *nd, t_avln *nw, void (*f)(void *))
 	return (nw);
 }
 
-
-t_avln			*avlb_node_create(char *key, void *cnt, size_t sz)
+t_avln		*avlb_node_create(char *key, void *cnt, size_t sz)
 {
 	t_avln	*node;
 
@@ -50,8 +49,7 @@ t_avln			*avlb_node_create(char *key, void *cnt, size_t sz)
 	return (node);
 }
 
-
-int				avlb_stree_destroy(t_avln *node, void (*f)(void *))
+int			avlb_stree_destroy(t_avln *node, void (*f)(void *))
 {
 	if (node == 0)
 		return (0);

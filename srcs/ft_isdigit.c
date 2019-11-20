@@ -6,13 +6,13 @@
 /*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 07:33:23 by hgranule          #+#    #+#             */
-/*   Updated: 2019/11/17 06:28:18 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/20 17:19:19 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 
-int		ft_isdigit(int c)
+int			ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);

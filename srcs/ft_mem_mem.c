@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mem_mem.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 11:33:59 by hgranule          #+#    #+#             */
-/*   Updated: 2019/09/01 13:30:36 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/20 17:14:52 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,10 @@ size_t len, const size_t sblen)
 		return (0);
 	its = (unsigned char *)src;
 	reslen = (((size_t)end_of_src - (size_t)its) - sblen) + 2;
-	while ((its = ft_memchr( \
+	while ((its = ft_memchr(\
 		its, \
 		*((unsigned char *)sbmem), \
-		reslen \
-	)) != 0)
+		reslen)) != 0)
 	{
 		if (!(chk_cnt = ft_memcmp_bltn(its, sbmem, sblen)))
 			return ((void *)its);

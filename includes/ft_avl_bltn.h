@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_avl_bltn.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 06:24:44 by hgranule          #+#    #+#             */
-/*   Updated: 2019/08/17 20:04:23 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/20 17:53:58 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include "ft_mem.h"
 # include <stdlib.h>
 # include "ft_string.h"
-
 
 char			avlb_height(t_avln *node);
 
