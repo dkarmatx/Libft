@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hgranule <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: hgranule <hgranule@21-school.ru>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 20:36:01 by hgranule          #+#    #+#              #
-#    Updated: 2019/10/07 07:34:53 by hgranule         ###   ########.fr        #
+#    Updated: 2019/11/29 19:25:32 by hgranule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 WORK_SPACE = $(shell pwd)
 CC = gcc
-CCFLAGS = -Wall -Werror -Wextra
+CCFLAGS = -Wall -Werror -Wextra -g
 EMPTY =
 TMP =
 
