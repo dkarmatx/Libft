@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_avl_edit_blt.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 06:55:13 by hgranule          #+#    #+#             */
-/*   Updated: 2019/11/20 17:20:06 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/11/29 19:37:40 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,10 @@ t_avln		*avlb_cut(t_avln *node, const char *key, t_avln **ct)
 	else if (cmp_res < 0)
 		node->left = avlb_cut(node->left, key, ct);
 	else
+	{
 		node = avlb_cutnd(node, ct);
+		(*ct) ? (*ct)->left = NULL : 0;
+		(*ct) ? (*ct)->right = NULL : 0;
+	}
 	return (avlb_balance(node));
 }
