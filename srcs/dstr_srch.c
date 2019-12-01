@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dstr_srch.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 11:10:25 by hgranule          #+#    #+#             */
-/*   Updated: 2019/11/20 17:27:41 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/12/01 16:13:44 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t			dstr_search_ch(const DSTRING *src, const char ch, size_t offs)
 	if (offs >= (size_t)src->strlen)
 		return (SIZE_T_MAX);
 	ch_ptr = (char *)ft_memchr(src->txt + offs, (int)ch, (size_t)src->strlen);
-	if (ch_ptr <= 0)
+	if (ch_ptr == 0)
 		return (SIZE_T_MAX);
 	ind = (size_t)ch_ptr - (size_t)src->txt;
 	return (ind);
@@ -40,7 +40,7 @@ const char *str, size_t offset)
 		return (SIZE_T_MAX);
 	str_ptr = (char *)ft_mem_mem(src->txt + offset, str, src->strlen, \
 	ft_strlen(str));
-	if (str_ptr <= 0)
+	if (str_ptr == 0)
 		return (SIZE_T_MAX);
 	ind = (size_t)str_ptr - (size_t)src->txt;
 	return (ind);
@@ -58,7 +58,7 @@ const DSTRING *d, size_t offset)
 		return (SIZE_T_MAX);
 	str_ptr = (char *)ft_mem_mem(src->txt + offset, d->txt, \
 	src->strlen, d->strlen);
-	if (str_ptr <= 0)
+	if (str_ptr == 0)
 		return (SIZE_T_MAX);
 	ind = (size_t)str_ptr - (size_t)src->txt;
 	return (ind);

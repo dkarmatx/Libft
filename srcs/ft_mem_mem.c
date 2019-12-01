@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mem_mem.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 11:33:59 by hgranule          #+#    #+#             */
-/*   Updated: 2019/11/20 17:14:52 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/12/01 16:12:14 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static size_t	ft_memcmp_bltn(const void *m1, const void *m2, size_t len)
 		if (ucm1[count] == ucm2[count])
 			++count;
 		else
-			return (++count);
+			return (count);
 	}
 	return (0);
 }
@@ -35,15 +35,15 @@ static size_t	ft_memcmp_bltn(const void *m1, const void *m2, size_t len)
 void			*ft_mem_mem(const void *src, const void *sbmem, \
 size_t len, const size_t sblen)
 {
-	unsigned char	*its;
+	void			*its;
 	size_t			reslen;
 	size_t			chk_cnt;
-	const void		*end_of_src = src + (len - 1);
+	const void		*end_of_srch = (void *)((void *)(src + len) - sblen);
 
-	if (!src || !sbmem || !sblen)
+	if (!src || !sbmem || !sblen || len < sblen)
 		return (0);
+	reslen = len - sblen + 1;
 	its = (unsigned char *)src;
-	reslen = (((size_t)end_of_src - (size_t)its) - sblen) + 2;
 	while ((its = ft_memchr(\
 		its, \
 		*((unsigned char *)sbmem), \
@@ -52,7 +52,7 @@ size_t len, const size_t sblen)
 		if (!(chk_cnt = ft_memcmp_bltn(its, sbmem, sblen)))
 			return ((void *)its);
 		its = its + chk_cnt;
-		reslen = (((size_t)end_of_src - (size_t)its) - sblen) + 2;
+		reslen = end_of_srch - its + 1;
 	}
 	return (0);
 }
