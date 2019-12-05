@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_avl_balance_blt.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:30:37 by hgranule          #+#    #+#             */
-/*   Updated: 2019/11/20 17:19:33 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/12/05 19:57:24 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,13 @@ t_avln		*avlb_balance(t_avln *node)
 	{
 		if ((bfac = avlb_bfactor(node->right)) < 0)
 			node->right = avlb_rotate_sr(node->right);
-		return (avlb_rotate_sl(node));
+		node = avlb_rotate_sl(node);
 	}
 	if (bfac == -2)
 	{
 		if ((bfac = avlb_bfactor(node->left)) > 0)
 			node->left = avlb_rotate_sl(node->left);
-		return (avlb_rotate_sr(node));
+		node = avlb_rotate_sr(node);
 	}
 	return (node);
 }

@@ -6,7 +6,7 @@
 /*   By: hgranule <hgranule@21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 06:55:13 by hgranule          #+#    #+#             */
-/*   Updated: 2019/11/29 19:37:40 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/12/05 19:59:42 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,21 @@ t_avln		*avlb_insert(t_avln *node, t_avln *newn, void (*f)(void *))
 
 t_avln		*avlb_sucut(t_avln *node, t_avln **min)
 {
+	t_avln	*nd;
 	if (node->left == 0 && (*min = node))
 		return (0);
-	if (avlb_sucut(node->left, min) == 0)
+	nd = avlb_sucut(node->left, min);
+	if (nd == 0)
 		node->left = node->left->right;
+	else if (nd)
+		node->left = nd;
 	return (avlb_balance(node));
 }
 
 t_avln		*avlb_cutnd(t_avln *node, t_avln **ct)
 {
+	t_avln	*nd;
+
 	*ct = node;
 	if (node->left == 0 && node->right == 0)
 		return (0);
@@ -43,8 +49,9 @@ t_avln		*avlb_cutnd(t_avln *node, t_avln **ct)
 		return (node->right);
 	if (node->right == 0)
 		return (node->left);
-	if (avlb_sucut(node->right, &node) != 0)
-		node->right = (*ct)->right;
+	nd = avlb_sucut(node->right, &node);
+	if (nd != 0)
+		node->right = nd;
 	node->left = (*ct)->left;
 	return (node);
 }
