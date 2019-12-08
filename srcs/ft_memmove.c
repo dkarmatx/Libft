@@ -6,7 +6,7 @@
 /*   By: hgranule <hgranule@21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 19:43:42 by hgranule          #+#    #+#             */
-/*   Updated: 2019/12/08 18:53:44 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/12/08 21:18:34 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static inline void		cpy_rwords(t_lword *dst, t_lword *src, size_t n)
 		*(dst + n) = *(src + n);
 }
 
-void						*ft_memmove(void *dst, const void *src, size_t len)
+void					*ft_memmove(void *dst, const void *src, size_t len)
 {
 	t_byte	*dst_b;
 	t_byte	*src_b;
