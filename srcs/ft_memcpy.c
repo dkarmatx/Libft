@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 15:41:18 by hgranule          #+#    #+#             */
-/*   Updated: 2019/11/20 17:13:35 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/12/08 18:06:36 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void					*ft_memcpy(void *dst, const void *src, size_t len)
 		return (dst);
 	if (len >= LWORD_SIZE)
 	{
-		tmp = LWORD_SIZE - ((size_t)dst_l & 0x07);
+		tmp = LWORD_SIZE - ((size_t)dst_l % LWORD_SIZE);
 		cpy_bytes((t_byte **)&dst_l, (t_byte **)&src_l, tmp);
 		len -= tmp;
 		tmp = len / LWORD_SIZE;

@@ -6,7 +6,7 @@
 /*   By: hgranule <hgranule@21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 17:14:26 by hgranule          #+#    #+#             */
-/*   Updated: 2019/12/08 16:03:20 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/12/08 17:11:15 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ ssize_t			dstr_insert_dstr(DSTRING *dst, DSTRING *src, ssize_t ind)
 	ntxt = (nbks > dst->bks) ? ft_memalloc(nbks * DSTR_BLK_SZ) : dst->txt;
 	if (!ntxt)
 		return (-1);
-	(ntxt != dst->txt) ? ft_memcpy(ntxt, dst->txt, ind) : 0;
-	ft_memcpy(&(ntxt[src->strlen + ind]), &(dst->txt[ind]), dst->strlen - ind);
-	ft_memcpy(&(ntxt[ind]), src->txt, src->strlen);
+	(ntxt != dst->txt) ? ft_memmove(ntxt, dst->txt, ind) : 0;
+	ft_memmove(&(ntxt[src->strlen + ind]), &(dst->txt[ind]), dst->strlen - ind);
+	ft_memmove(&(ntxt[ind]), src->txt, src->strlen);
 	if (ntxt != dst->txt)
 		free(dst->txt);
 	dst->txt = ntxt;
