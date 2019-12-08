@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dstring.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hgranule <hgranule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hgranule <hgranule@21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 16:47:39 by hgranule          #+#    #+#             */
-/*   Updated: 2019/11/20 17:53:34 by hgranule         ###   ########.fr       */
+/*   Updated: 2019/12/08 15:54:09 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,15 @@ size_t offset);
 ** Deletes a string and give back a normal null-terminated string
 */
 char			*dstr_flush(DSTRING **src);
+
+/*
+** Trimmes a DSTRING
+** If use dstr_trim_this, it reallocates current DSTRING.
+**		If allocation failes, its sets current DSTRING to a NULL.
+** If use dstr_trim, it makes new trimmed DSTRING.
+**		If allocation failes, its returns  NULL.
+*/
+DSTRING			*dstr_trim(DSTRING *dstr);
+void			dstr_trim_this(DSTRING **dstr);
 
 #endif

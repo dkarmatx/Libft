@@ -6,7 +6,7 @@
 #    By: hgranule <hgranule@21-school.ru>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 20:36:01 by hgranule          #+#    #+#              #
-#    Updated: 2019/11/29 19:25:32 by hgranule         ###   ########.fr        #
+#    Updated: 2019/12/08 16:04:19 by hgranule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ DBG =			dbg_timer dbg_timer_points
 
 DSTRO =			$(patsubst %, $(O_DIR)/%.o, $(DSTR))
 DSTRS =			$(patsubst %, $(C_DIR)/%.c, $(DSTR))
-DSTR =			dstr_insert dstr_mem dstr_slice dstr_swpc dstr_srch
+DSTR =			dstr_insert dstr_mem dstr_slice dstr_swpc dstr_srch dstr_trim
 
 CTYPEO =		$(patsubst %, $(O_DIR)/%.o, $(CTYPE))
 CTYPES =		$(patsubst %, $(C_DIR)/%.c, $(CTYPE))
