@@ -6,7 +6,7 @@
 #    By: hgranule <hgranule@21-school.ru>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 20:36:01 by hgranule          #+#    #+#              #
-#    Updated: 2019/12/16 12:36:43 by hgranule         ###   ########.fr        #
+#    Updated: 2019/12/16 19:12:50 by hgranule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ GNL =			get_next_line
 
 HTO =			$(patsubst %, $(O_DIR)/%.o, $(HT))
 HTS =			$(patsubst %, $(C_DIR)/%.c, $(HT))
-HT =			hs_hashfuncs ht_add ht_new ht_resize ht_getdel
+HT =			hs_hashfuncs ht_add ht_new ht_resize ht_getdel ht_info
 
 DBGO =			$(patsubst %, $(O_DIR)/%.o, $(DBG))
 DBGS =			$(patsubst %, $(C_DIR)/%.c, $(DBG))
