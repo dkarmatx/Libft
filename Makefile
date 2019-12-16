@@ -6,7 +6,7 @@
 #    By: hgranule <hgranule@21-school.ru>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 20:36:01 by hgranule          #+#    #+#              #
-#    Updated: 2019/12/08 16:04:19 by hgranule         ###   ########.fr        #
+#    Updated: 2019/12/16 12:36:43 by hgranule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ O_DIR = $(WORK_SPACE)/objs
 A_DIR = $(WORK_SPACE)/alibs
 C_DIR = $(WORK_SPACE)/srcs
 
-STD_LIB =		ctype io list dlist mem string gnl lbuff avltr dstr dbg
+STD_LIB =		ctype io list dlist mem string gnl lbuff avltr dstr dbg ht
 
 STD_LIBS =		$(patsubst %, libft%.a, $(STD_LIB))
 LIBS =			$(patsubst %, $(A_DIR)/%, $(STD_LIBS))
@@ -31,6 +31,10 @@ ALL_O =			$(foreach lib, $(shell echo $(STD_LIB) | tr a-z A-Z), $(patsubst %, $(
 GNLO =			$(patsubst %, $(O_DIR)/%.o, $(GNL))
 GNLS =			$(patsubst %, $(C_DIR)/%.c, $(GNL))
 GNL =			get_next_line
+
+HTO =			$(patsubst %, $(O_DIR)/%.o, $(HT))
+HTS =			$(patsubst %, $(C_DIR)/%.c, $(HT))
+HT =			hs_hashfuncs ht_add ht_new ht_resize ht_getdel
 
 DBGO =			$(patsubst %, $(O_DIR)/%.o, $(DBG))
 DBGS =			$(patsubst %, $(C_DIR)/%.c, $(DBG))

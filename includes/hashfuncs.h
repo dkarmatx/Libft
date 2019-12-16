@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dstr_trim.c                                        :+:      :+:    :+:   */
+/*   hashfuncs.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgranule <hgranule@21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/08 15:40:33 by hgranule          #+#    #+#             */
-/*   Updated: 2019/12/16 13:09:21 by hgranule         ###   ########.fr       */
+/*   Created: 2019/12/16 04:15:41 by hgranule          #+#    #+#             */
+/*   Updated: 2019/12/16 13:10:50 by hgranule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dstring.h"
-#include "ft_string.h"
+#ifndef HASHFUNCS_H
+# define HASHFUNCS_H
 
-DSTRING		*dstr_trim(DSTRING *dstr)
-{
-	char	*trimmed;
-	DSTRING	*trm_dstr;
+# include "ft_ctype.h"
 
-	trimmed = ft_strtrim(dstr->txt);
-	if (!trimmed)
-		return (NULL);
-	trm_dstr = dstr_new(trimmed);
-	free(trimmed);
-	return (trm_dstr);
-}
+# define HS_32_FNV_PRIME 0x01000193
+# define HS_32_FNV_OFFSET 0x811C9DC5
 
-void		dstr_trim_this(DSTRING **dstr)
-{
-	DSTRING	*dstr_trm;
+# define HS_64_FNV_PRIME 0x00000100000001B3
+# define HS_64_FNV_OFFSET 0XCBF29CE484222325
 
-	dstr_trm = dstr_trim(*dstr);
-	dstr_del(dstr);
-	*dstr = dstr_trm;
-}
+# define HS_DJB_OFFSET 0x1505
+
+t_u64		hs_fnv1a_64(char const *str);
+t_u32		hs_fnv1a_32(char const *str);
+t_u64		hs_djb2_64(char const *str);
+
+#endif
