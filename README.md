@@ -1,5 +1,8 @@
 # Libft
-Libft - recreating of the C standart library with some helpful functions.
+SOON IT COMES AN UPDATE!!!
+- REFACTORING (perfect code is coming!)
+- UPDATED DINAMYC STRINGS
+- BLOCK ALLOCATOR
 
 Memory editing functions:
 * ft_memcpy()
